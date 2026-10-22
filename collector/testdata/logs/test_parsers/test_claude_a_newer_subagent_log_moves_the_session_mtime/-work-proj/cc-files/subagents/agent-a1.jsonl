@@ -1,0 +1,1 @@
+{"type": "assistant", "sessionId": "cc-files", "cwd": "/work/proj", "isSidechain": true, "timestamp": "2026-09-18T09:01:00.000Z", "message": {"role": "assistant", "content": [{"type": "tool_use", "name": "Write", "input": {"file_path": "/work/proj/late.md"}}]}}

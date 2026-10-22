@@ -1,0 +1,7 @@
+{"timestamp": "2026-09-16T02:00:00.000Z", "type": "session_meta", "payload": {"session_id": "cx-files", "cwd": "/work/atlas"}}
+{"timestamp": "2026-09-16T02:05:40.000Z", "type": "response_item", "payload": {"type": "message", "role": "user", "content": [{"type": "input_text", "text": "规格を書いて"}]}}
+{"timestamp": "2026-09-16T02:05:40.000Z", "type": "response_item", "payload": {"type": "custom_tool_call", "name": "exec", "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: /work/atlas/成果物/2.1-定义/DOC-0100-保存规格.md\\n+# 规格\\n+\\n*** Update File: docs/log.md\\n@@\\n-a\\n+b\\n*** Delete File: /work/atlas/gone.md\\n*** Update File: /work/atlas/old-name.md\\n*** Move to: /work/atlas/new-name.md\\n@@\\n-a\\n+b\\n*** End Patch\"))"}}
+{"timestamp": "2026-09-16T02:05:40.000Z", "type": "response_item", "payload": {"type": "custom_tool_call", "name": "apply_patch", "input": "*** Begin Patch\n*** Add File: /work/atlas/raw.md\n+x\n*** End Patch\n"}}
+{"timestamp": "2026-09-16T02:05:40.000Z", "type": "response_item", "payload": {"type": "function_call", "name": "apply_patch", "arguments": "{\"input\":\"*** Begin Patch\\n*** Update File: /work/atlas/fn.md\\n@@\\n*** End Patch\"}"}}
+{"timestamp": "2026-09-16T02:05:40.000Z", "type": "response_item", "payload": {"type": "custom_tool_call_output", "output": "*** Add File: /work/atlas/echo.md\\n"}}
+{"timestamp": "2026-09-16T02:05:40.000Z", "type": "response_item", "payload": {"type": "custom_tool_call", "name": "exec", "input": "tools.apply_patch(\"*** Begin Patch\\n*** Add File: /tmp/x.md\\n+y\\n\")"}}

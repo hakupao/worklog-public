@@ -1,0 +1,4 @@
+{"type": "user", "sessionId": "tie00001-0000-0000-0000-000000000001", "cwd": "/work/tie/sub", "isSidechain": false, "timestamp": "2026-11-02T09:00:00Z", "message": {"role": "user", "content": "同じ深さのキー"}}
+{"type": "assistant", "sessionId": "tie00001-0000-0000-0000-000000000001", "cwd": "/work/tie/sub", "isSidechain": false, "timestamp": "2026-11-02T09:05:00Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "はい"}]}}
+{"type": "user", "sessionId": "tie00001-0000-0000-0000-000000000001", "cwd": "/work/tie/sub", "isSidechain": false, "timestamp": "2026-11-02T09:06:00Z", "message": {"role": "user", "content": "続き"}}
+{"type": "assistant", "sessionId": "tie00001-0000-0000-0000-000000000001", "cwd": "/work/tie/sub", "isSidechain": false, "timestamp": "2026-11-02T09:12:00Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "完了"}]}}

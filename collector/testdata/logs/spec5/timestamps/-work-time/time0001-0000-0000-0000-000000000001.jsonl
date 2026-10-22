@@ -1,0 +1,4 @@
+{"type": "user", "sessionId": "time0001-0000-0000-0000-000000000001", "cwd": "/work/time", "isSidechain": false, "timestamp": "2026-09-18T09:00:00.1234567Z", "message": {"role": "user", "content": "七桁の小数"}}
+{"type": "assistant", "sessionId": "time0001-0000-0000-0000-000000000001", "cwd": "/work/time", "isSidechain": false, "timestamp": "2026-09-18T09:05:00.9999999Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "切り捨て"}]}}
+{"type": "user", "sessionId": "time0001-0000-0000-0000-000000000001", "cwd": "/work/time", "isSidechain": false, "timestamp": "2026-09-18T09:07:00.5Z", "message": {"role": "user", "content": "一桁"}}
+{"type": "assistant", "sessionId": "time0001-0000-0000-0000-000000000001", "cwd": "/work/time", "isSidechain": false, "timestamp": "2026-09-18T09:12:00Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "小数なし"}]}}

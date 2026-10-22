@@ -1,0 +1,2 @@
+# Byte-exact test data: logs carry CRLF, lone CR, invalid UTF-8 and raw U+2028 on purpose.
+* -text

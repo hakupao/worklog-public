@@ -1,0 +1,3 @@
+{"type": "user", "sessionId": "flt00001-0000-0000-0000-000000000001", "cwd": "/work/scratch-workspaces/x", "isSidechain": false, "timestamp": "2026-09-18T09:00:00Z", "message": {"role": "user", "content": "除外"}}
+{"type": "assistant", "sessionId": "flt00001-0000-0000-0000-000000000001", "cwd": "/work/scratch-workspaces/x", "isSidechain": false, "timestamp": "2026-09-18T09:30:00Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "x"}]}}
+{"type": "user", "sessionId": "flt00001-0000-0000-0000-000000000001", "cwd": "/work/scratch-workspaces/x", "isSidechain": false, "timestamp": "2026-09-18T09:31:00Z", "message": {"role": "user", "content": "y"}}

@@ -1,0 +1,4 @@
+{"timestamp":"2026-09-12T03:03:32.000Z","type":"session_meta","payload":{"id":"01a09391-f7a0-7000-8000-000000000002","session_id":"01a0938e-bb80-7000-8000-000000000001","forked_from_id":"01a0938e-bb80-7000-8000-000000000001","cwd":"/work/proj-a","source":{"subagent":{"thread_spawn":{"parent_thread_id":"01a0938e-bb80-7000-8000-000000000001"}}}}}
+{"timestamp":"2026-09-12T03:00:00.000Z","type":"session_meta","payload":{"id":"01a0938e-bb80-7000-8000-000000000001","session_id":"01a0938e-bb80-7000-8000-000000000001","cwd":"/work/proj-a","source":"vscode"}}
+{"timestamp":"2026-09-12T03:00:22.000Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"replayed parent prompt"}]}}
+{"timestamp":"2026-09-12T03:03:52.000Z","type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"subagent answer"}]}}

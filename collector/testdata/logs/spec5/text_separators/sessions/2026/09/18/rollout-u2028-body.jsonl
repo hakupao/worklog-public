@@ -1,0 +1,5 @@
+{"timestamp": "2026-09-18T09:00:00.000Z", "type": "session_meta", "payload": {"id": "sep00003-0000-0000-0000-000000000003", "session_id": "sep00003-0000-0000-0000-000000000003", "cwd": "/work/text"}}
+{"timestamp": "2026-09-18T09:01:00.000Z", "type": "response_item", "payload": {"type": "message", "role": "user", "content": [{"type": "input_text", "text": "本文に がある"}]}}
+{"timestamp": "2026-09-18T09:02:00.000Z", "type": "response_item", "payload": {"type": "message", "role": "user", "content": [{"type": "input_text", "text": "残る依頼"}]}}
+{"timestamp": "2026-09-18T09:05:00.000Z", "type": "response_item", "payload": {"type": "message", "role": "assistant", "content": [{"type": "output_text", "text": "了解 です"}]}}
+{"timestamp": "2026-09-18T09:09:00.000Z", "type": "response_item", "payload": {"type": "message", "role": "assistant", "content": [{"type": "output_text", "text": "完了"}]}}

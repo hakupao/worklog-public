@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  15 分ごと（0/15/30/45 分）に `wl harvest --tiered` を実行する launchd の例。
+  --tiered は stat-first（変わっていないログは開かない）で、要約は 1 時間ごと＋停止時、副作業は時/日/週の区切りごと。
+
+  インストール:
+    cp scripts/com.worklog.harvest.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.worklog.harvest.plist
+
+  アンインストール:
+    launchctl unload ~/Library/LaunchAgents/com.worklog.harvest.plist
+    rm ~/Library/LaunchAgents/com.worklog.harvest.plist
+
+  ProgramArguments は Go 版の <リポジトリ>/bin/wl (`make -C collector build` で作る)。
+  リポジトリの場所が異なる場合はパスを書き換えてください。
+  tiered を戻す場合: launchctl unload → `go -C collector run ./tools/tiered-rollback ~/.worklog`
+  → ProgramArguments を [bin/wl, harvest]、StartCalendarInterval を Minute=0 の 1 つに戻して load
+  （docs/guide/usage.md の「回滚」）。
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.worklog.harvest</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/dev/Project/worklog/bin/wl</string>
+    <string>harvest</string>
+    <string>--tiered</string>
+  </array>
+
+  <!--
+    launchd は最小限の PATH と "/" の作業ディレクトリで起動する。
+    - PATH: 要約に使う `claude`（~/.local/bin）を見つけるため。無いと要約がすべて fallback になる。
+      `which claude` の結果に合わせて書き換えてください。
+    - WORKLOG_ROOT: `wl` が config.toml を見つけるため。
+  -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/dev/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>WORKLOG_ROOT</key>
+    <string>/Users/dev/Project/worklog</string>
+  </dict>
+  <key>WorkingDirectory</key>
+  <string>/Users/dev/Project/worklog</string>
+
+  <!-- 0/15/30/45 分。launchd はウィンドウを出さないので静か。StartCalendarInterval はスリープ中に過ぎた分を
+       復帰時に 1 回だけまとめて実行する（StartInterval は飛ばすだけなので使わない）。 -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Minute</key><integer>45</integer></dict>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/worklog-harvest.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/worklog-harvest.err.log</string>
+
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

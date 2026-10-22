@@ -1,0 +1,89 @@
+{
+ "note": "Spec §6 inputs Python crashes on: the exception type each Python step raises ('ok' = no exception, 'none' = no session). Go warns and skips instead (one warning per file)",
+ "rows": {
+  "D1": {
+   "what": "A log that is not valid UTF-8 (read_text strict)",
+   "unit": "logs/divergent/D1",
+   "files": [
+    "logs/divergent/D1/-work-div/div00001-0000-0000-0000-000000000001.jsonl"
+   ],
+   "python": {
+    "parse_file claude-code logs/divergent/D1/-work-div/div00001-0000-0000-0000-000000000001.jsonl": "UnicodeDecodeError",
+    "parse_file codex logs/divergent/D1/-work-div/div00001-0000-0000-0000-000000000001.jsonl": "UnicodeDecodeError",
+    "iter_sessions claude-code": "UnicodeDecodeError",
+    "iter_sessions codex": "UnicodeDecodeError",
+    "harvest": "UnicodeDecodeError"
+   }
+  },
+  "D2": {
+   "what": "Codex _first_meta on invalid UTF-8 (only OSError caught)",
+   "unit": "logs/divergent/D2",
+   "files": [
+    "logs/divergent/D2/sessions/2026/09/18/rollout-d2.jsonl"
+   ],
+   "python": {
+    "parse_file claude-code logs/divergent/D2/sessions/2026/09/18/rollout-d2.jsonl": "UnicodeDecodeError",
+    "parse_file codex logs/divergent/D2/sessions/2026/09/18/rollout-d2.jsonl": "UnicodeDecodeError",
+    "iter_sessions claude-code": "UnicodeDecodeError",
+    "iter_sessions codex": "UnicodeDecodeError",
+    "harvest": "UnicodeDecodeError"
+   }
+  },
+  "D3": {
+   "what": "Timestamps with and without an offset mixed in one session",
+   "unit": "logs/divergent/D3",
+   "files": [
+    "logs/divergent/D3/-work-div/div00003-0000-0000-0000-000000000003.jsonl"
+   ],
+   "python": {
+    "parse_file claude-code logs/divergent/D3/-work-div/div00003-0000-0000-0000-000000000003.jsonl": "ok",
+    "parse_file codex logs/divergent/D3/-work-div/div00003-0000-0000-0000-000000000003.jsonl": "none",
+    "iter_sessions claude-code": "ok",
+    "iter_sessions codex": "ok",
+    "harvest": "TypeError"
+   }
+  },
+  "D4": {
+   "what": "A token count int() rejects ('1.5')",
+   "unit": "logs/divergent/D4",
+   "files": [
+    "logs/divergent/D4/-work-div/div00004-0000-0000-0000-000000000004.jsonl"
+   ],
+   "python": {
+    "parse_file claude-code logs/divergent/D4/-work-div/div00004-0000-0000-0000-000000000004.jsonl": "ValueError",
+    "parse_file codex logs/divergent/D4/-work-div/div00004-0000-0000-0000-000000000004.jsonl": "none",
+    "iter_sessions claude-code": "ValueError",
+    "iter_sessions codex": "ok",
+    "harvest": "ValueError"
+   }
+  },
+  "D11": {
+   "what": "A timestamp fromisoformat rejects ('yesterday')",
+   "unit": "logs/divergent/D11",
+   "files": [
+    "logs/divergent/D11/-work-div/div00011-0000-0000-0000-000000000011.jsonl"
+   ],
+   "python": {
+    "parse_file claude-code logs/divergent/D11/-work-div/div00011-0000-0000-0000-000000000011.jsonl": "ValueError",
+    "parse_file codex logs/divergent/D11/-work-div/div00011-0000-0000-0000-000000000011.jsonl": "none",
+    "iter_sessions claude-code": "ValueError",
+    "iter_sessions codex": "ok",
+    "harvest": "ValueError"
+   }
+  },
+  "D12": {
+   "what": "A timestamp that is truthy but not a string (a number)",
+   "unit": "logs/divergent/D12",
+   "files": [
+    "logs/divergent/D12/-work-div/div00012-0000-0000-0000-000000000012.jsonl"
+   ],
+   "python": {
+    "parse_file claude-code logs/divergent/D12/-work-div/div00012-0000-0000-0000-000000000012.jsonl": "AttributeError",
+    "parse_file codex logs/divergent/D12/-work-div/div00012-0000-0000-0000-000000000012.jsonl": "none",
+    "iter_sessions claude-code": "AttributeError",
+    "iter_sessions codex": "ok",
+    "harvest": "AttributeError"
+   }
+  }
+ }
+}

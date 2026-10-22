@@ -1,0 +1,3 @@
+{"type": "user", "sessionId": "flt00002-0000-0000-0000-000000000002", "cwd": "/work/hook", "isSidechain": false, "timestamp": "2026-09-18T09:00:00Z", "message": {"role": "user", "content": "Review this change for security vulnerabilities, please"}}
+{"type": "assistant", "sessionId": "flt00002-0000-0000-0000-000000000002", "cwd": "/work/hook", "isSidechain": false, "timestamp": "2026-09-18T09:20:00Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "x"}]}}
+{"type": "user", "sessionId": "flt00002-0000-0000-0000-000000000002", "cwd": "/work/hook", "isSidechain": false, "timestamp": "2026-09-18T09:21:00Z", "message": {"role": "user", "content": "y"}}

@@ -1,0 +1,5 @@
+{"timestamp": "2026-09-18T18:00:00.1234567+09:00", "type": "session_meta", "payload": {"id": "time0006-0000-0000-0000-000000000006", "session_id": "time0006-0000-0000-0000-000000000006", "cwd": "/work/time"}}
+{"timestamp": "2026-09-18T18:00:01.1234567+09:00", "type": "response_item", "payload": {"type": "message", "role": "user", "content": [{"type": "input_text", "text": "Codex の七桁"}]}}
+{"timestamp": "2026-09-18T18:10:00-05:30", "type": "response_item", "payload": {"type": "message", "role": "assistant", "content": [{"type": "output_text", "text": "了解"}]}}
+{"timestamp": "2026-09-18T18:20:00+09:00", "type": "response_item", "payload": {"type": "message", "role": "user", "content": [{"type": "input_text", "text": "続き"}]}}
+{"timestamp": "2026-09-18T09:30:00.000000Z", "type": "response_item", "payload": {"type": "message", "role": "assistant", "content": [{"type": "output_text", "text": "完了"}]}}

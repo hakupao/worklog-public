@@ -1,0 +1,41 @@
+.omc/
+.claude/worktrees/
+.superpowers/
+
+node_modules
+server/.wrangler/
+server/.dev.vars
+server/.dev.vars.*
+server/.env*
+server/public/*
+!server/public/.gitkeep
+docs/projects/web-service/evidence/sdd_3/review-*.diff
+web/.replay/
+
+# Screenshots from development stay local; evidence keeps text records only
+docs/**/*.png
+docs/**/*.jpg
+docs/**/*.jpeg
+docs/**/*.gif
+docs/**/*.webp
+
+# Local tool output and installed skills
+.playwright-mcp/
+.impeccable/
+.claude/agents/
+.claude/skills/
+skills-lock.json
+PRODUCT.md
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Root-level wrangler cache (account id)
+.wrangler/
+server/.pdf-check/
+
+# Go collector binaries (make -C collector build)
+/bin/
+
+# macOS Finder metadata
+.DS_Store

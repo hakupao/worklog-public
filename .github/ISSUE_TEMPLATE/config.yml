@@ -1,0 +1,2 @@
+# No blank issues: "which part" and "how to reproduce" are what you need most when you come back to an issue later.
+blank_issues_enabled: false

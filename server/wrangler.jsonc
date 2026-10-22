@@ -1,0 +1,37 @@
+{
+  "name": "worklog",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  // nodejs_compat: required by exceljs (uses Node's Buffer/stream APIs) for server-side xlsx generation.
+  "compatibility_flags": ["nodejs_compat"],
+  // Custom domain (DNS record + certificate are managed by Cloudflare for a custom_domain route).
+  // The workers.dev URL keeps working alongside it.
+  "routes": [{ "pattern": "worklog.example.com", "custom_domain": true }],
+  // Without this, wrangler disables the workers.dev subdomain as soon as `routes` exist.
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "worklog",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // Cloudflare Access verifier settings (public values). The bearer token stays a Worker secret.
+  "vars": {
+    "TEAM_DOMAIN": "https://your-team.cloudflareaccess.com",
+    "POLICY_AUD": "<your-access-application-aud>",
+    // S2c: "on" lets the 2,32 cron and ↻ call the API for 週報 digests; "off" while digests are written locally
+    // (scripts/digests-local.mjs).
+    "DIGESTS_AUTO": "off"
+  },
+  // src/cron.ts dispatches on controller.cron: */5 = S1 translation sweep, 2,32 = 週報 AI digests.
+  "triggers": { "crons": ["*/5 * * * *", "2,32 * * * *"] },
+  // Browser Run (design 2026-10-08 §4.2): the 週報 PDF is rendered by a headless Chromium on Cloudflare.
+  "browser": { "binding": "BROWSER" },
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api", "/api/*"]
+  }
+}

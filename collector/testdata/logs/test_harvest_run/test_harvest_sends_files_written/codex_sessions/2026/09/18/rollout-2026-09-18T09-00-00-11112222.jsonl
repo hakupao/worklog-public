@@ -1,0 +1,9 @@
+{"timestamp":"2026-09-18T08:55:00.000Z","type":"session_meta","payload":{"session_id":"11112222-3333-4444-5555-666677778888","cwd":"/work/proj-b"}}
+{"timestamp":"2026-09-18T08:56:00.000Z","type":"response_item","payload":{"type":"message","role":"developer","content":[{"type":"input_text","text":"<environment_context>cwd=/work/proj-b</environment_context>"}]}}
+{"timestamp":"2026-09-18T09:00:00.000Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"見積書のテンプレートを直したい"}]}}
+{"timestamp":"2026-09-18T09:05:00.000Z","type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"テンプレートを確認します。"}]}}
+{"timestamp":"2026-09-18T09:07:00.000Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"# AGENTS.md\n作業ルールの読み込み"}]}}
+{"timestamp":"2026-09-18T09:10:00.000Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"消費税の端数処理がおかしいようです"}]}}
+{"timestamp":"2026-09-18T10:30:00.000Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"修正内容を確認しました、問題なさそうです"}]}}
+{"timestamp":"2026-09-18T10:35:00.000Z","type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"ありがとうございます。他にあればお知らせください。"}]}}
+{"timestamp": "2026-09-18T09:05:00.000Z", "type": "response_item", "payload": {"type": "custom_tool_call", "name": "exec", "input": "tools.apply_patch(\"*** Begin Patch\\n*** Add File: out/spec.md\\n+x\\n*** End Patch\")"}}

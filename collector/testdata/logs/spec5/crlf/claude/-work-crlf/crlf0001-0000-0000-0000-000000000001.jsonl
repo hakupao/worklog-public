@@ -1,0 +1,4 @@
+{"type": "user", "sessionId": "crlf0001-0000-0000-0000-000000000001", "cwd": "/work/crlf", "isSidechain": false, "timestamp": "2026-09-18T09:00:00.000Z", "message": {"role": "user", "content": "CRLF のログ"}}
+{"type": "assistant", "sessionId": "crlf0001-0000-0000-0000-000000000001", "cwd": "/work/crlf", "isSidechain": false, "timestamp": "2026-09-18T09:04:00.000Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "はい"}]}}
+{"type": "user", "sessionId": "crlf0001-0000-0000-0000-000000000001", "cwd": "/work/crlf", "isSidechain": false, "timestamp": "2026-09-18T09:06:00.000Z", "message": {"role": "user", "content": "続き"}}
+{"type": "assistant", "sessionId": "crlf0001-0000-0000-0000-000000000001", "cwd": "/work/crlf", "isSidechain": false, "timestamp": "2026-09-18T09:09:00.000Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "完了"}]}}

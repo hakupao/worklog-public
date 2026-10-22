@@ -1,0 +1,6682 @@
+{
+ "note": "run.harvest(since_days=None, workers=1) twice per corpus unit; bodies = json.loads(model_dump_json()) of every Session sent, in send order; the store answers inserted=1 every time",
+ "tasks": [
+  [
+   "T-A",
+   "ProjA",
+   "open",
+   "2026-09-01",
+   "2026-09-30"
+  ],
+  [
+   "T-TIE1",
+   "TieFirst",
+   "open",
+   "2026-11-01",
+   null
+  ],
+  [
+   "T-TIE2",
+   "TieSecond",
+   "open",
+   "2026-11-01",
+   null
+  ],
+  [
+   "T-H",
+   "ProjA",
+   "hold",
+   "2026-09-01",
+   null
+  ]
+ ],
+ "projects": [
+  [
+   "/work/proj-a",
+   "ProjA"
+  ],
+  [
+   "/work/tie",
+   "TieFirst"
+  ],
+  [
+   "/work/tie/",
+   "TieSecond"
+  ],
+  [
+   "C:\\Users\\Me\\Proj",
+   "WinProj"
+  ]
+ ],
+ "config": "machine mac-golden, exclude_cwd_patterns [scratch-workspaces], exclude_prompt_patterns default, pricing = config.example.toml, summarize_model haiku, min_active_minutes 3",
+ "ts": "2026-10-13T12:00:00.123456",
+ "summarizer": "summarize.summarize with a fake runner: exit 1 when sha256(prompt)[0:2] % 3 == 0, else stdout '  要約 <sha256[:8]> — 作業をまとめた\\u3000\\n'",
+ "roots": "claude-code = the unit; codex = <unit>/sessions when present, else the unit",
+ "units": {
+  "logs/divergent/D1": {
+   "error": "UnicodeDecodeError",
+   "message": "'utf-8' codec can't decode byte 0xff in position 587: invalid start byte"
+  },
+  "logs/divergent/D11": {
+   "error": "ValueError",
+   "message": "Invalid isoformat string: 'yesterday'"
+  },
+  "logs/divergent/D12": {
+   "error": "AttributeError",
+   "message": "'int' object has no attribute 'replace'"
+  },
+  "logs/divergent/D2": {
+   "error": "UnicodeDecodeError",
+   "message": "'utf-8' codec can't decode byte 0xc3 in position 512: invalid continuation byte"
+  },
+  "logs/divergent/D3": {
+   "error": "TypeError",
+   "message": "can't compare offset-naive and offset-aware datetimes"
+  },
+  "logs/divergent/D4": {
+   "error": "ValueError",
+   "message": "invalid literal for int() with base 10: '1.5'"
+  },
+  "logs/spec5/codex_exec": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sexec0001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "exec0001-0000-0000-0000-000000000001",
+     "cwd": "/work/exec",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:06:00Z",
+     "active_minutes": 6,
+     "turns": 1,
+     "summary": "要約 1ce56ad2 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "/work/exec/emoji-😀.md",
+      "/work/exec/say \"hi\".md",
+      "/work/exec/pair-😀.md",
+      "/work/exec/hex-AB.md",
+      "/work/exec/bad-u{ZZ}.md",
+      "/work/exec/lone-�.md",
+      "/work/exec/linecont.md",
+      "/work/exec/tmpl-🚀.md",
+      "/work/exec/single'q'.md"
+     ],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:06:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/crlf": {
+   "runs": [
+    {
+     "result": {
+      "new": 4,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 2,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 4,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Scrlf0002",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "crlf0002-0000-0000-0000-000000000002",
+     "cwd": "/work/crlf",
+     "started_at": "2026-09-18T10:00:00Z",
+     "ended_at": "2026-09-18T10:09:00Z",
+     "active_minutes": 9,
+     "turns": 2,
+     "summary": "CR だけのログ",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T10:00:00Z",
+       "2026-09-18T10:09:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Scrlf0001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "crlf0001-0000-0000-0000-000000000001",
+     "cwd": "/work/crlf",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:09:00Z",
+     "active_minutes": 9,
+     "turns": 2,
+     "summary": "要約 7cb5cddd — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:09:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Scrlf0004",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "crlf0004-0000-0000-0000-000000000004",
+     "cwd": "/work/crlf",
+     "started_at": "2026-09-18T11:00:00Z",
+     "ended_at": "2026-09-18T11:12:00Z",
+     "active_minutes": 12,
+     "turns": 2,
+     "summary": "cr rollout",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "gpt-6-sol": {
+        "input": 30,
+        "output": 4,
+        "cache_read": 10,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {
+       "gpt-6-sol": {
+        "input": 30,
+        "output": 4,
+        "cache_read": 10,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "cost_usd": 0.000102,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T11:00:00Z",
+       "2026-09-18T11:12:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Scrlf0003",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "crlf0003-0000-0000-0000-000000000003",
+     "cwd": "/work/crlf",
+     "started_at": "2026-09-18T11:00:00Z",
+     "ended_at": "2026-09-18T11:12:00Z",
+     "active_minutes": 12,
+     "turns": 2,
+     "summary": "要約 cebfc801 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T11:00:00Z",
+       "2026-09-18T11:12:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/filters": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 3,
+      "fallback": 1,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 4,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sflt00004",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "flt00004-0000-0000-0000-000000000004",
+     "cwd": "/work/trivial",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:03:00Z",
+     "active_minutes": 3,
+     "turns": 1,
+     "summary": "三分ちょうど",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:03:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/gaps": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sgap00001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "gap00001-0000-0000-0000-000000000001",
+     "cwd": "/work/gap",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:10:00Z",
+     "active_minutes": 39,
+     "turns": 2,
+     "summary": "要約 e6cc9f5b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:30:00Z"
+      ],
+      [
+       "2026-09-18T10:00:00.000001Z",
+       "2026-09-18T10:10:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/projects_tie": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Stie00001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "tie00001-0000-0000-0000-000000000001",
+     "cwd": "/work/tie/sub",
+     "started_at": "2026-11-02T09:00:00Z",
+     "ended_at": "2026-11-02T09:12:00Z",
+     "active_minutes": 12,
+     "turns": 2,
+     "summary": "要約 65c8b1ce — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-TIE1",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-11-02T09:00:00Z",
+       "2026-11-02T09:12:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/text_separators": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Ssep00001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "sep00001-0000-0000-0000-000000000001",
+     "cwd": "/work/text",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:10:00Z",
+     "active_minutes": 10,
+     "turns": 3,
+     "summary": "要約 9b93e61e — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Ssep00003",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "sep00003-0000-0000-0000-000000000003",
+     "cwd": "/work/text",
+     "started_at": "2026-09-18T09:02:00Z",
+     "ended_at": "2026-09-18T09:09:00Z",
+     "active_minutes": 7,
+     "turns": 1,
+     "summary": "要約 44c65c6a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:02:00Z",
+       "2026-09-18T09:09:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/timestamps": {
+   "runs": [
+    {
+     "result": {
+      "new": 6,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 4,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 6,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Stime0001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "time0001-0000-0000-0000-000000000001",
+     "cwd": "/work/time",
+     "started_at": "2026-09-18T09:00:00.123456Z",
+     "ended_at": "2026-09-18T09:12:00Z",
+     "active_minutes": 11,
+     "turns": 2,
+     "summary": "七桁の小数",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00.123456Z",
+       "2026-09-18T09:12:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Stime0002",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "time0002-0000-0000-0000-000000000002",
+     "cwd": "/work/time",
+     "started_at": "2026-09-18T18:00:00+09:00",
+     "ended_at": "2026-09-19T00:30:00+09:00",
+     "active_minutes": 40,
+     "turns": 2,
+     "summary": "要約 1f3f667a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T18:00:00+09:00",
+       "2026-09-18T18:20:00.500000+09:00"
+      ],
+      [
+       "2026-09-19T00:10:00+09:00",
+       "2026-09-19T00:30:00+09:00"
+      ]
+     ],
+     "artifacts": [
+      {
+       "url": "https://claude.ai/artifact/TIME2",
+       "title": "東京",
+       "artifact_id": "t2",
+       "ts": "2026-09-19T00:31:00+09:00"
+      }
+     ]
+    },
+    {
+     "id": "Stime0003",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "time0003-0000-0000-0000-000000000003",
+     "cwd": "/work/time",
+     "started_at": "2026-09-18T09:00:00",
+     "ended_at": "2026-09-18T09:40:00.000001",
+     "active_minutes": 40,
+     "turns": 2,
+     "summary": "オフセットなし",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00",
+       "2026-09-18T09:40:00.000001"
+      ]
+     ],
+     "artifacts": [
+      {
+       "url": "https://claude.ai/artifact/TIME3",
+       "title": "naive",
+       "artifact_id": "t3",
+       "ts": "2026-09-18T09:41:00"
+      }
+     ]
+    },
+    {
+     "id": "Stime0004",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "time0004-0000-0000-0000-000000000004",
+     "cwd": "/work/time",
+     "started_at": "2026-09-18T18:00:00+09:00",
+     "ended_at": "2026-09-18T09:10:00Z",
+     "active_minutes": 10,
+     "turns": 2,
+     "summary": "同じ瞬間 (JST 表記が先)",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T18:00:00+09:00",
+       "2026-09-18T18:10:00+09:00"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Stime0005",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "time0005-0000-0000-0000-000000000005",
+     "cwd": "/work/time",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T18:10:00+09:00",
+     "active_minutes": 10,
+     "turns": 2,
+     "summary": "要約 dcd4ec21 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ]
+     ],
+     "artifacts": [
+      {
+       "url": "https://claude.ai/artifact/TIME5A",
+       "title": "A",
+       "artifact_id": "a",
+       "ts": "2026-09-18T18:20:00+09:00"
+      },
+      {
+       "url": "https://claude.ai/artifact/TIME5B",
+       "title": "B",
+       "artifact_id": "b",
+       "ts": "2026-09-18T09:20:00Z"
+      }
+     ]
+    },
+    {
+     "id": "Stime0006",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "time0006-0000-0000-0000-000000000006",
+     "cwd": "/work/time",
+     "started_at": "2026-09-18T18:00:01.123456+09:00",
+     "ended_at": "2026-09-18T18:10:00-05:30",
+     "active_minutes": 29,
+     "turns": 2,
+     "summary": "Codex の七桁",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T18:00:01.123456+09:00",
+       "2026-09-18T09:30:00Z"
+      ],
+      [
+       "2026-09-18T18:10:00-05:30",
+       "2026-09-18T18:10:00-05:30"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/unicode": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Suni00001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "uni00001-0000-0000-0000-000000000001",
+     "cwd": "/work/案件😀",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:10:00Z",
+     "active_minutes": 10,
+     "turns": 2,
+     "summary": "要約 073522fe — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "/work/案件😀/成果物/報告書😀.md",
+      "/work/案件😀/資料/図𠮷.png"
+     ],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ]
+     ],
+     "artifacts": [
+      {
+       "url": "https://claude.ai/artifact/UNI1",
+       "title": "報告書 𠮷野家 😀",
+       "artifact_id": "id-😀",
+       "ts": "2026-09-18T09:08:00Z"
+      }
+     ]
+    },
+    {
+     "id": "Suni00002",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "uni00002-0000-0000-0000-000000000002",
+     "cwd": "/work/規格",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:06:00Z",
+     "active_minutes": 6,
+     "turns": 1,
+     "summary": "要約 5ed20b95 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "/work/規格/成果物/規格😀.md"
+     ],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:06:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/usage": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Suse00001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "use00001-0000-0000-0000-000000000001",
+     "cwd": "/work/usage",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:08:00Z",
+     "active_minutes": 8,
+     "turns": 2,
+     "summary": "要約 b9a1e175 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5:fast": {
+        "input": 11,
+        "output": 102,
+        "cache_read": 500,
+        "cache_write_5m": 100,
+        "cache_write_1h": 200,
+        "reasoning": 4
+       },
+       "claude-opus-5-5": {
+        "input": 11,
+        "output": 360,
+        "cache_read": 1000,
+        "cache_write_5m": 0,
+        "cache_write_1h": 50,
+        "reasoning": 9
+       },
+       "claude-fable-5-1": {
+        "input": 5030,
+        "output": 400,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-sonnet-5": {
+        "input": 5,
+        "output": 2,
+        "cache_read": 12,
+        "cache_write_5m": 7,
+        "cache_write_1h": 0,
+        "reasoning": 1
+       },
+       "claude-sonnet-4-6": {
+        "input": 2,
+        "output": 5,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-fable-5-2": {
+        "input": 100,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-haiku-4-5": {
+        "input": 0,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {},
+      "cost_usd": 0.082448,
+      "cost_partial": true
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:08:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Suse00002",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "use00002-0000-0000-0000-000000000002",
+     "cwd": "/work/usage",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 7d1e8bc9 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "gpt-6-sol": {
+        "input": 40,
+        "output": 9,
+        "cache_read": 60,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 1
+       }
+      },
+      "subagent": {},
+      "cost_usd": 0.000182,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/spec5/windows": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 1,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Swin00002",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "win00002-0000-0000-0000-000000000002",
+     "cwd": "\\\\server\\share\\proj",
+     "started_at": "2026-09-18T10:00:00Z",
+     "ended_at": "2026-09-18T10:06:00Z",
+     "active_minutes": 6,
+     "turns": 2,
+     "summary": "UNC の作業場所",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "\\\\server\\share\\proj\\a.md",
+      "\\\\server\\share\\other\\b.md"
+     ],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T10:00:00Z",
+       "2026-09-18T10:06:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Swin00001",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "win00001-0000-0000-0000-000000000001",
+     "cwd": "C:\\Users\\Me\\Proj",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:21:00Z",
+     "active_minutes": 21,
+     "turns": 2,
+     "summary": "要約 9bc13570 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": null,
+     "link_method": "none",
+     "files_written": [
+      "C:\\Users\\Me\\Proj\\out\\a.md",
+      "\\\\server\\share\\docs\\b.md",
+      "C:\\Users\\Me\\Proj\\mixed\\c.md",
+      "C:\\x.md",
+      "C:\\Users\\Me\\Proj\\d.md",
+      "C:\\Users\\Me\\Proj\\sub\\rel.md",
+      "C:\\Users\\Me\\Proj\\sub\\rel2.md",
+      "C:\\Users\\Me\\Proj\\Report.md",
+      "C:\\Users\\Me\\Proj\\report.md",
+      "D:relative.md",
+      "C:\\rooted.md",
+      "//server/share/x.md",
+      "C:\\Users\\Me\\Proj\\sub\\from-agent.md",
+      "C:\\Users\\Me\\Proj\\OUT\\A.md"
+     ],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:21:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_cli_api/test_harvest_reports_refused_sessions_and_leaves_them_unbookmarked": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_codex_archive/test_archived_rollout_is_harvested": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_codex_archive/test_rollout_in_both_places_is_yielded_once": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_codex_fork/test_fork_flag_in_a_later_meta_does_not_skip": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 1,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S01a0938e",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "01a0938e-bb80-7000-8000-000000000001",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-12T03:00:22Z",
+     "ended_at": "2026-09-12T03:03:52Z",
+     "active_minutes": 3,
+     "turns": 1,
+     "summary": "replayed parent prompt",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-12T03:00:22Z",
+       "2026-09-12T03:03:52Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_codex_fork/test_iter_sessions_yields_only_the_parent": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_fallback/test_result_counts_fallback_summaries": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_case_created_after_the_first_harvest_gets_the_idle_session_re_sent": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_case_created_after_the_first_harvest_gets_the_idle_session_re_sent@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_fallback_summary_is_retried_when_the_log_next_moves": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_fallback_summary_is_retried_when_the_log_next_moves@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_parked_session_is_still_bookmarked": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_pre_fingerprint_bookmark_is_honored_and_upgraded": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_pre_fingerprint_bookmark_is_honored_and_upgraded@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_publish_alone_re_sends_the_session_with_its_artifacts": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": [
+      {
+       "url": "https://claude.ai/artifact/AAA111",
+       "title": "集計結果",
+       "artifact_id": "a1",
+       "ts": "2026-09-18T11:00:05.000Z"
+      }
+     ]
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_publish_alone_re_sends_the_session_with_its_artifacts@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_refused_session_is_counted_and_never_bookmarked": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_session_that_could_not_be_parked_is_counted_and_never_bookmarked": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_session_that_gained_a_real_turn_is_summarized_again": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T12:05:00Z",
+     "active_minutes": 20,
+     "turns": 4,
+     "summary": "要約 bb234a91 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ],
+      [
+       "2026-09-18T12:00:00Z",
+       "2026-09-18T12:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_session_that_gained_a_real_turn_is_summarized_again@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_a_subagent_that_finished_later_is_enough_to_summarize_again": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 10,
+        "output": 5,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {
+       "claude-opus-5-5": {
+        "input": 10,
+        "output": 5,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "cost_usd": 0.00014,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_an_idle_session_whose_log_only_grew_metadata_is_not_summarized_again": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_an_idle_session_whose_log_only_grew_metadata_is_not_summarized_again@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_counts_new_and_updated_from_the_store_result": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_counts_parked_appends": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_does_not_read_sessions_from_the_store": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_end_to_end_creates_sessions": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_is_idempotent_on_second_run": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_keeps_the_new_state_file_when_an_old_one_still_exists": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_moves_the_state_file_out_of_the_repo_once": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_raises_without_parsing_logs_when_the_api_is_unreachable": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_sends_active_intervals": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_sends_files_written": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "/work/proj-b/out/spec.md"
+     ],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_sends_files_written@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_sends_tokens_priced_from_config": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 1000000,
+        "output": 1000000,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {},
+      "cost_usd": 24.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_sends_tokens_priced_from_config@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_harvest_skips_excluded_cwd": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_refresh_meta_honours_excluded_cwds": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "/work/proj-b/out/spec.md"
+     ],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_refresh_meta_honours_excluded_cwds@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_refresh_meta_ignores_bookmarks_and_sends_only_derived_fields": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "/work/proj-b/out/spec.md"
+     ],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_refresh_meta_ignores_bookmarks_and_sends_only_derived_fields@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_refresh_meta_looks_at_every_log_by_default": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_refresh_meta_reports_a_request_that_did_not_land": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 2,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "/work/proj-b/out/spec.md"
+     ],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_refresh_meta_reports_a_request_that_did_not_land@initial": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_since_filters_old_files": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_harvest_run/test_trivial_session_skipped_without_summarizing": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_claude_a_newer_subagent_log_moves_the_session_mtime": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_claude_artifacts_from_subagents_and_an_older_publish_read_later": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_claude_artifacts_keep_publishes_only": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_claude_files_written_from_file_tools": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_claude_iter_sessions_finds_fixture": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/work/proj-a",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 fbc2017a — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-dir",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_parsers/test_claude_subagent_transcripts_feed_the_parent_session": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_a_header_inside_added_text_is_not_a_file": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_bare_windows_paths_are_kept_intact": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_decodes_unicode_escapes_in_the_literal": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_escaped_quote_in_path_does_not_swallow_the_patch": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_escaped_windows_path_keeps_its_backslashes": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_files_written_from_apply_patch": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_function_call_argv_lists_are_searched": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_heredoc_patch_is_read_without_decoding": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_ignores_a_header_mentioned_mid_line_in_code": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_iter_sessions_finds_fixture": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "S11112222",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "codex",
+     "session_id": "11112222-3333-4444-5555-666677778888",
+     "cwd": "/work/proj-b",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T10:35:00Z",
+     "active_minutes": 15,
+     "turns": 3,
+     "summary": "要約 dad10b1b — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": null,
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:10:00Z"
+      ],
+      [
+       "2026-09-18T10:30:00Z",
+       "2026-09-18T10:35:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_parsers/test_codex_missing_meta_returns_none": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_parsers/test_codex_patch_bound_to_a_variable_first": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_tokens/test_claude_a_resumed_subagent_replaying_an_earlier_snapshot_does_not_undo_the_final_count": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-sonnet-5": {
+        "input": 3,
+        "output": 213,
+        "cache_read": 10,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {
+       "claude-sonnet-5": {
+        "input": 3,
+        "output": 213,
+        "cache_read": 10,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "cost_usd": 0.002162,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_advisor_iterations_are_counted_on_their_own_model": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 4,
+        "output": 357,
+        "cache_read": 105877,
+        "cache_write_5m": 1223,
+        "cache_write_1h": 1517,
+        "reasoning": 9
+       },
+       "claude-fable-5-1": {
+        "input": 54477,
+        "output": 4010,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {},
+      "cost_usd": 0.791852,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_counts_a_response_once_however_many_records_repeat_its_id": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 4,
+        "output": 55,
+        "cache_read": 1000,
+        "cache_write_5m": 200,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {},
+      "cost_usd": 0.002316,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_fast_mode_is_its_own_model_and_synthetic_turns_are_skipped": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5:fast": {
+        "input": 10,
+        "output": 100,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-opus-5-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {},
+      "cost_usd": 0.004104,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_inline_sidechain_and_subagent_logs_are_subagent_usage": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 1,
+        "output": 10,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-haiku-4-5-20251001": {
+        "input": 2,
+        "output": 20,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-sonnet-5": {
+        "input": 7,
+        "output": 70,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {
+       "claude-haiku-4-5-20251001": {
+        "input": 2,
+        "output": 20,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-sonnet-5": {
+        "input": 7,
+        "output": 70,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "cost_usd": 0.00102,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_iter_sessions_never_parses_a_workflow_transcript_as_a_session": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-sonnet-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {
+       "claude-sonnet-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "cost_usd": 3.6e-05,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_splits_cache_writes_into_5m_and_1h": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-sonnet-5": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write_5m": 77,
+        "cache_write_1h": 80,
+        "reasoning": 0
+       }
+      },
+      "subagent": {},
+      "cost_usd": 0.000513,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_takes_the_last_record_of_a_response_streamed_into_a_subagent_log": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-sonnet-5": {
+        "input": 2,
+        "output": 392,
+        "cache_read": 0,
+        "cache_write_5m": 46311,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {
+       "claude-sonnet-5": {
+        "input": 2,
+        "output": 392,
+        "cache_read": 0,
+        "cache_write_5m": 46311,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "cost_usd": 0.119726,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_tokens_do_not_change_text_or_turns": {
+   "runs": [
+    {
+     "result": {
+      "new": 2,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 2,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 1,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "やって",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "やって",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {},
+      "cost_usd": 2.4e-05,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    },
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "やって",
+     "summary_source": "fallback",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [],
+     "tokens": {
+      "by_model": {},
+      "subagent": {},
+      "cost_usd": 0.0,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_claude_workflow_subagents_count_for_mtime_and_files_written": {
+   "runs": [
+    {
+     "result": {
+      "new": 1,
+      "updated": 0,
+      "skipped": 0,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": [
+    {
+     "id": "Sabcd1234",
+     "ts": "2026-10-13T12:00:00.123456",
+     "machine": "mac-golden",
+     "schema_version": 1,
+     "kind": "session",
+     "agent": "claude-code",
+     "session_id": "abcd1234-ef56-7890-ab12-cd34ef567890",
+     "cwd": "/w",
+     "started_at": "2026-09-18T09:00:00Z",
+     "ended_at": "2026-09-18T09:05:00Z",
+     "active_minutes": 5,
+     "turns": 1,
+     "summary": "要約 c7826811 — 作業をまとめた",
+     "summary_source": "llm",
+     "task_id": "T-A",
+     "link_method": "auto-time",
+     "files_written": [
+      "/w/out/report.md"
+     ],
+     "tokens": {
+      "by_model": {
+       "claude-opus-5-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       },
+       "claude-sonnet-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "subagent": {
+       "claude-sonnet-5": {
+        "input": 1,
+        "output": 1,
+        "cache_read": 0,
+        "cache_write_5m": 0,
+        "cache_write_1h": 0,
+        "reasoning": 0
+       }
+      },
+      "cost_usd": 3.6e-05,
+      "cost_partial": false
+     },
+     "active_intervals": [
+      [
+       "2026-09-18T09:00:00Z",
+       "2026-09-18T09:05:00Z"
+      ]
+     ],
+     "artifacts": []
+    }
+   ]
+  },
+  "logs/test_tokens/test_codex_counter_restart_does_not_lose_the_first_run": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_tokens/test_codex_counts_each_request_under_its_model_with_uncached_input": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_tokens/test_codex_fork_counts_once_when_archived_and_still_in_sessions": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_tokens/test_codex_fork_mtime_is_the_parents": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_tokens/test_codex_fork_usage_is_the_parent_sessions_subagent_usage": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_tokens/test_codex_uncached_input_never_goes_negative": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  },
+  "logs/test_tokens/test_codex_without_token_counts_is_unknown_not_zero": {
+   "runs": [
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    },
+    {
+     "result": {
+      "new": 0,
+      "updated": 0,
+      "skipped": 1,
+      "fallback": 0,
+      "parked": 0,
+      "rejected": 0,
+      "lost": 0
+     },
+     "stderr": []
+    }
+   ],
+   "bodies": []
+  }
+ }
+}

@@ -1,0 +1,683 @@
+{
+ "note": "Task.model_validate(row) (pydantic lax mode, what api_client.list_tasks/get_task use); dump_json = model_dump_json(). list_tasks answers None when any row fails",
+ "cases": [
+  {
+   "name": "server_row",
+   "row": {
+    "id": "T20261001-01",
+    "kind": "task",
+    "ts": "2026-10-01T09:00:00.000Z",
+    "machine": "mac",
+    "schema_version": 1,
+    "requester": "田中さん",
+    "project": "P",
+    "title": "見積",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null,
+    "extra": "ignored"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T20261001-01\",\"ts\":\"2026-10-01T09:00:00Z\",\"machine\":\"mac\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"田中さん\",\"project\":\"P\",\"title\":\"見積\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T20261001-01",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "mac",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "田中さん",
+    "project": "P",
+    "title": "見積",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "minimal",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "ts_offset",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T18:00:00+09:00",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T18:00:00+09:00\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T18:00:00+09:00",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "ts_micro",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00.123456789Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00.123456Z\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00.123456Z",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "ts_epoch_int",
+   "row": {
+    "id": "T1",
+    "ts": 1790000000,
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-09-21T14:13:20Z\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-09-21T14:13:20Z",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "ts_date_only",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T00:00:00\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T00:00:00",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "date_compact",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "20261001"
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "received_at",
+     "date_from_datetime_inexact"
+    ]
+   ]
+  },
+  {
+   "name": "date_with_zero_time",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01T00:00:00"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00Z\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "date_with_time",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01T09:00:00"
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "received_at",
+     "date_from_datetime_inexact"
+    ]
+   ]
+  },
+  {
+   "name": "date_int",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": 1790000000
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "received_at",
+     "date_from_datetime_inexact"
+    ]
+   ]
+  },
+  {
+   "name": "schema_version_str",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "schema_version": "2"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00Z\",\"machine\":\"m\",\"schema_version\":2,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "schema_version": 2,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "schema_version_float",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "schema_version": 2.0
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00Z\",\"machine\":\"m\",\"schema_version\":2,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "schema_version": 2,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "schema_version_frac",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "schema_version": 2.5
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "schema_version",
+     "int_from_float"
+    ]
+   ]
+  },
+  {
+   "name": "schema_version_bool",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "schema_version": true
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00Z\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "hours_str",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "hours_manual": "1.5"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00Z\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":1.5}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": 1.5
+   }
+  },
+  {
+   "name": "hours_int",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "hours_manual": 2
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00Z\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":2.0}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": 2.0
+   }
+  },
+  {
+   "name": "status_bad",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "status": "closed"
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "status",
+     "literal_error"
+    ]
+   ]
+  },
+  {
+   "name": "kind_note",
+   "row": {
+    "id": "T1",
+    "kind": "note",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01"
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "kind",
+     "literal_error"
+    ]
+   ]
+  },
+  {
+   "name": "missing_title",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "received_at": "2026-10-01"
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "title",
+     "missing"
+    ]
+   ]
+  },
+  {
+   "name": "project_null",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "project": null
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "project",
+     "string_type"
+    ]
+   ]
+  },
+  {
+   "name": "id_int",
+   "row": {
+    "id": 5,
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01"
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "id",
+     "string_type"
+    ]
+   ]
+  },
+  {
+   "name": "deliverables_str",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "deliverables": "a.md"
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "deliverables",
+     "list_type"
+    ]
+   ]
+  },
+  {
+   "name": "deliverables_tuple_like",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "deliverables": [
+     "a",
+     1
+    ]
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "deliverables.1",
+     "string_type"
+    ]
+   ]
+  },
+  {
+   "name": "done_at_bad",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "status": "done",
+    "done_at": "2026-02-30"
+   },
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "done_at",
+     "date_from_datetime_parsing"
+    ]
+   ]
+  },
+  {
+   "name": "thinking_multiline",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01",
+    "thinking": "- 一行目\n- 二行目 😀"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00Z\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"- 一行目\\n- 二行目 😀\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00Z",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "- 一行目\n- 二行目 😀",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "ts_naive_fraction_zero",
+   "row": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00.000000",
+    "machine": "m",
+    "requester": "r",
+    "title": "t",
+    "received_at": "2026-10-01"
+   },
+   "ok": true,
+   "dump_json": "{\"id\":\"T1\",\"ts\":\"2026-10-01T09:00:00\",\"machine\":\"m\",\"schema_version\":1,\"kind\":\"task\",\"requester\":\"r\",\"project\":\"\",\"title\":\"t\",\"status\":\"open\",\"received_at\":\"2026-10-01\",\"done_at\":null,\"thinking\":\"\",\"deliverables\":[],\"hours_manual\":null}",
+   "dump": {
+    "id": "T1",
+    "ts": "2026-10-01T09:00:00",
+    "machine": "m",
+    "schema_version": 1,
+    "kind": "task",
+    "requester": "r",
+    "project": "",
+    "title": "t",
+    "status": "open",
+    "received_at": "2026-10-01",
+    "done_at": null,
+    "thinking": "",
+    "deliverables": [],
+    "hours_manual": null
+   }
+  },
+  {
+   "name": "not_an_object",
+   "row": [
+    "T1"
+   ],
+   "ok": false,
+   "error": "ValidationError",
+   "errors": [
+    [
+     "",
+     "model_type"
+    ]
+   ]
+  }
+ ],
+ "note_dumps": [
+  "{\"id\":\"N20261013-120000-abcd\",\"ts\":\"2026-10-13T12:00:00.123456\",\"machine\":\"mac\",\"schema_version\":1,\"kind\":\"note\",\"text\":\"メモ 😀\",\"task_id\":\"T1\",\"minutes\":30}",
+  "{\"id\":\"N2\",\"ts\":\"2026-10-13T12:00:00\",\"machine\":\"mac\",\"schema_version\":1,\"kind\":\"note\",\"text\":\"\",\"task_id\":null,\"minutes\":null}"
+ ],
+ "session_defaults_dump": "{\"id\":\"Sabcd1234\",\"ts\":\"2026-10-13T12:00:00.123456\",\"machine\":\"mac\",\"schema_version\":1,\"kind\":\"session\",\"agent\":\"claude-code\",\"session_id\":\"abcd1234-x\",\"cwd\":\"/w\",\"started_at\":\"2026-09-18T09:00:00Z\",\"ended_at\":\"2026-09-18T18:00:00.500000+09:00\",\"active_minutes\":1,\"turns\":1,\"summary\":\"s\",\"summary_source\":\"fallback\",\"task_id\":null,\"link_method\":\"none\",\"files_written\":[],\"tokens\":null,\"active_intervals\":null,\"artifacts\":null}"
+}

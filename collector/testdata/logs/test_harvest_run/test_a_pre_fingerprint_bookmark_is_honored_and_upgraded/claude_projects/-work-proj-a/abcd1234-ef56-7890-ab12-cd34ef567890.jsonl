@@ -1,0 +1,17 @@
+{"type":"user","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890","isSidechain":false,"cwd":"/work/proj-a","timestamp":"2026-09-18T09:00:00.000Z","message":{"role":"user","content":"帳票の集計処理を修正してほしい"}}
+{"type":"assistant","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890","isSidechain":false,"cwd":"/work/proj-a","timestamp":"2026-09-18T09:05:00.000Z","message":{"role":"assistant","content":[{"type":"text","text":"承知しました。集計処理を確認します。"}]}}
+{"type":"user","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890","isSidechain":false,"cwd":"/work/proj-a","timestamp":"2026-09-18T09:10:00.000Z","message":{"role":"user","content":"原因は日付フォーマットのズレでした"}}
+{"type":"user","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890","isSidechain":true,"cwd":"/work/proj-a","timestamp":"2026-09-18T09:12:00.000Z","message":{"role":"user","content":"サブエージェントへの指示テキスト"}}
+{"type":"user","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890","isSidechain":false,"cwd":"/work/proj-a","timestamp":"2026-09-18T09:15:00.000Z","message":{"role":"user","content":"<tool-result>ok</tool-result>"}}
+{"type":"user","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890","isSidechain":false,"cwd":"/work/proj-a","timestamp":"2026-09-18T10:30:00.000Z","message":{"role":"user","content":"修正版を確認しました、ありがとうございます"}}
+{"type":"assistant","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890","isSidechain":false,"cwd":"/work/proj-a","timestamp":"2026-09-18T10:35:00.000Z","message":{"role":"assistant","content":[{"type":"text","text":"どういたしまして。他にご要望があればお知らせください。"}]}}
+{"type":"attachment","timestamp":"2026-09-18T11:00:00.000Z","attachment":{}}
+{"type":"last-prompt","lastPrompt":"x"}
+{"type":"mode","mode":"default"}
+{"type":"bridge-session","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890"}
+{"type":"system","subtype":"turn_duration","timestamp":"2026-09-18T11:00:01.000Z"}
+{"type":"attachment","timestamp":"2026-09-18T11:00:00.000Z","attachment":{}}
+{"type":"last-prompt","lastPrompt":"x"}
+{"type":"mode","mode":"default"}
+{"type":"bridge-session","sessionId":"abcd1234-ef56-7890-ab12-cd34ef567890"}
+{"type":"system","subtype":"turn_duration","timestamp":"2026-09-18T11:00:01.000Z"}

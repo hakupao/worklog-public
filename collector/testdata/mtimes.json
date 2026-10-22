@@ -1,0 +1,670 @@
+{
+ "fixtures/claude_code_session.jsonl": [
+  1790294400,
+  123400
+ ],
+ "fixtures/codex_rollout.jsonl": [
+  1790297917,
+  8042600
+ ],
+ "fixtures/codex_rollout_fork.jsonl": [
+  1790301434,
+  15961800
+ ],
+ "fixtures/parity/data/notes.jsonl": [
+  1790304951,
+  23881000
+ ],
+ "fixtures/parity/data/sessions.jsonl": [
+  1790308468,
+  31800200
+ ],
+ "fixtures/parity/data/tasks.jsonl": [
+  1790311985,
+  39719400
+ ],
+ "logs/divergent/D1/-work-div/div00001-0000-0000-0000-000000000001.jsonl": [
+  1790315502,
+  47638600
+ ],
+ "logs/divergent/D11/-work-div/div00011-0000-0000-0000-000000000011.jsonl": [
+  1790319019,
+  55557700
+ ],
+ "logs/divergent/D12/-work-div/div00012-0000-0000-0000-000000000012.jsonl": [
+  1790322536,
+  63476900
+ ],
+ "logs/divergent/D2/sessions/2026/09/18/rollout-d2.jsonl": [
+  1790326053,
+  71396100
+ ],
+ "logs/divergent/D3/-work-div/div00003-0000-0000-0000-000000000003.jsonl": [
+  1790329570,
+  79315300
+ ],
+ "logs/divergent/D4/-work-div/div00004-0000-0000-0000-000000000004.jsonl": [
+  1790333087,
+  87234500
+ ],
+ "logs/spec5/codex_exec/sessions/2026/09/18/rollout-exec.jsonl": [
+  1790336604,
+  95153700
+ ],
+ "logs/spec5/crlf/claude/-work-cr/crlf0002-0000-0000-0000-000000000002.jsonl": [
+  1790340121,
+  103072900
+ ],
+ "logs/spec5/crlf/claude/-work-crlf/crlf0001-0000-0000-0000-000000000001.jsonl": [
+  1790343638,
+  110992100
+ ],
+ "logs/spec5/crlf/sessions/2026/09/18/rollout-cr-fork.jsonl": [
+  1790347155,
+  118911300
+ ],
+ "logs/spec5/crlf/sessions/2026/09/18/rollout-cr.jsonl": [
+  1790350672,
+  126830500
+ ],
+ "logs/spec5/crlf/sessions/2026/09/18/rollout-crlf.jsonl": [
+  1790354189,
+  134749700
+ ],
+ "logs/spec5/filters/-work-hook/flt00002-0000-0000-0000-000000000002.jsonl": [
+  1790357706,
+  142668800
+ ],
+ "logs/spec5/filters/-work-scratch/flt00001-0000-0000-0000-000000000001.jsonl": [
+  1790361223,
+  150588000
+ ],
+ "logs/spec5/filters/-work-trivial/flt00003-0000-0000-0000-000000000003.jsonl": [
+  1790364740,
+  158507200
+ ],
+ "logs/spec5/filters/-work-trivial/flt00004-0000-0000-0000-000000000004.jsonl": [
+  1790368257,
+  166426400
+ ],
+ "logs/spec5/gaps/-work-gap/gap00001-0000-0000-0000-000000000001.jsonl": [
+  1790371774,
+  174345600
+ ],
+ "logs/spec5/projects_tie/-work-tie-sub/tie00001-0000-0000-0000-000000000001.jsonl": [
+  1790375291,
+  182264800
+ ],
+ "logs/spec5/text_separators/-work-text/sep00001-0000-0000-0000-000000000001.jsonl": [
+  1790378808,
+  190184000
+ ],
+ "logs/spec5/text_separators/sessions/2026/09/18/rollout-u2028-body.jsonl": [
+  1790382325,
+  198103200
+ ],
+ "logs/spec5/text_separators/sessions/2026/09/18/rollout-u2028-meta.jsonl": [
+  1790385842,
+  206022400
+ ],
+ "logs/spec5/timestamps/-work-time/time0001-0000-0000-0000-000000000001.jsonl": [
+  1790389359,
+  213941600
+ ],
+ "logs/spec5/timestamps/-work-time/time0002-0000-0000-0000-000000000002.jsonl": [
+  1790392876,
+  221860800
+ ],
+ "logs/spec5/timestamps/-work-time/time0003-0000-0000-0000-000000000003.jsonl": [
+  1790396393,
+  229779900
+ ],
+ "logs/spec5/timestamps/-work-time/time0004-0000-0000-0000-000000000004.jsonl": [
+  1790399910,
+  237699100
+ ],
+ "logs/spec5/timestamps/-work-time/time0005-0000-0000-0000-000000000005.jsonl": [
+  1790403427,
+  245618300
+ ],
+ "logs/spec5/timestamps/sessions/2026/09/18/rollout-time.jsonl": [
+  1790406944,
+  253537500
+ ],
+ "logs/spec5/unicode/-work-\u6848\u4ef6\ud83d\ude00/uni00001-0000-0000-0000-000000000001.jsonl": [
+  1790410461,
+  261456700
+ ],
+ "logs/spec5/unicode/sessions/2026/09/18/rollout-unicode.jsonl": [
+  1790413978,
+  269375900
+ ],
+ "logs/spec5/usage/-work-usage/use00001-0000-0000-0000-000000000001.jsonl": [
+  1790417495,
+  277295100
+ ],
+ "logs/spec5/usage/sessions/2026/09/18/rollout-usage.jsonl": [
+  1790421012,
+  285214300
+ ],
+ "logs/spec5/windows/--server-share-proj/win00002-0000-0000-0000-000000000002.jsonl": [
+  1790424529,
+  293133500
+ ],
+ "logs/spec5/windows/C--Users-Me-Proj/win00001-0000-0000-0000-000000000001.jsonl": [
+  1790428046,
+  100
+ ],
+ "logs/spec5/windows/C--Users-Me-Proj/win00001-0000-0000-0000-000000000001/subagents/agent-w1.jsonl": [
+  1790428046,
+  999999900
+ ],
+ "logs/test_cli_api/test_harvest_reports_refused_sessions_and_leaves_them_unbookmarked/claude/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790435080,
+  316891000
+ ],
+ "logs/test_codex_archive/test_archived_rollout_is_harvested/archived_sessions/rollout-a.jsonl": [
+  1790438597,
+  324810200
+ ],
+ "logs/test_codex_archive/test_rollout_in_both_places_is_yielded_once/archived_sessions/rollout-a.jsonl": [
+  1790442114,
+  332729400
+ ],
+ "logs/test_codex_archive/test_rollout_in_both_places_is_yielded_once/sessions/2026/09/15/rollout-a.jsonl": [
+  1790445631,
+  340648600
+ ],
+ "logs/test_codex_fork/test_fork_flag_in_a_later_meta_does_not_skip/r.jsonl": [
+  1790449148,
+  348567800
+ ],
+ "logs/test_codex_fork/test_iter_sessions_yields_only_the_parent/2026/09/11/rollout-fork.jsonl": [
+  1790452665,
+  356487000
+ ],
+ "logs/test_codex_fork/test_iter_sessions_yields_only_the_parent/2026/09/11/rollout-parent.jsonl": [
+  1790456182,
+  364406200
+ ],
+ "logs/test_harvest_fallback/test_result_counts_fallback_summaries/claude/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790459699,
+  372325400
+ ],
+ "logs/test_harvest_fallback/test_result_counts_fallback_summaries/codex/2026/09/18/rollout-x.jsonl": [
+  1790463216,
+  380244600
+ ],
+ "logs/test_harvest_run/test_a_case_created_after_the_first_harvest_gets_the_idle_session_re_sent/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790466733,
+  388163800
+ ],
+ "logs/test_harvest_run/test_a_case_created_after_the_first_harvest_gets_the_idle_session_re_sent/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790470250,
+  396083000
+ ],
+ "logs/test_harvest_run/test_a_case_created_after_the_first_harvest_gets_the_idle_session_re_sent@initial/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790473767,
+  404002100
+ ],
+ "logs/test_harvest_run/test_a_fallback_summary_is_retried_when_the_log_next_moves/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790477284,
+  411921300
+ ],
+ "logs/test_harvest_run/test_a_fallback_summary_is_retried_when_the_log_next_moves/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790480801,
+  419840500
+ ],
+ "logs/test_harvest_run/test_a_fallback_summary_is_retried_when_the_log_next_moves@initial/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790484318,
+  427759700
+ ],
+ "logs/test_harvest_run/test_a_parked_session_is_still_bookmarked/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790487835,
+  435678900
+ ],
+ "logs/test_harvest_run/test_a_parked_session_is_still_bookmarked/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790491352,
+  443598100
+ ],
+ "logs/test_harvest_run/test_a_pre_fingerprint_bookmark_is_honored_and_upgraded/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790494869,
+  451517300
+ ],
+ "logs/test_harvest_run/test_a_pre_fingerprint_bookmark_is_honored_and_upgraded/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790498386,
+  459436500
+ ],
+ "logs/test_harvest_run/test_a_pre_fingerprint_bookmark_is_honored_and_upgraded@initial/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790501903,
+  467355700
+ ],
+ "logs/test_harvest_run/test_a_publish_alone_re_sends_the_session_with_its_artifacts/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790505420,
+  475274900
+ ],
+ "logs/test_harvest_run/test_a_publish_alone_re_sends_the_session_with_its_artifacts/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790508937,
+  483194100
+ ],
+ "logs/test_harvest_run/test_a_publish_alone_re_sends_the_session_with_its_artifacts@initial/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790512454,
+  491113200
+ ],
+ "logs/test_harvest_run/test_a_refused_session_is_counted_and_never_bookmarked/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790515971,
+  499032400
+ ],
+ "logs/test_harvest_run/test_a_refused_session_is_counted_and_never_bookmarked/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790519488,
+  506951600
+ ],
+ "logs/test_harvest_run/test_a_session_that_could_not_be_parked_is_counted_and_never_bookmarked/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790523005,
+  514870800
+ ],
+ "logs/test_harvest_run/test_a_session_that_could_not_be_parked_is_counted_and_never_bookmarked/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790526522,
+  522790000
+ ],
+ "logs/test_harvest_run/test_a_session_that_gained_a_real_turn_is_summarized_again/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790530039,
+  530709200
+ ],
+ "logs/test_harvest_run/test_a_session_that_gained_a_real_turn_is_summarized_again/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790533556,
+  538628400
+ ],
+ "logs/test_harvest_run/test_a_session_that_gained_a_real_turn_is_summarized_again@initial/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790537073,
+  546547600
+ ],
+ "logs/test_harvest_run/test_a_subagent_that_finished_later_is_enough_to_summarize_again/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790540590,
+  554466800
+ ],
+ "logs/test_harvest_run/test_a_subagent_that_finished_later_is_enough_to_summarize_again/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890/subagents/agent-a1.jsonl": [
+  1790544107,
+  562386000
+ ],
+ "logs/test_harvest_run/test_a_subagent_that_finished_later_is_enough_to_summarize_again/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790547624,
+  570305200
+ ],
+ "logs/test_harvest_run/test_an_idle_session_whose_log_only_grew_metadata_is_not_summarized_again/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790551141,
+  578224400
+ ],
+ "logs/test_harvest_run/test_an_idle_session_whose_log_only_grew_metadata_is_not_summarized_again/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790554658,
+  586143500
+ ],
+ "logs/test_harvest_run/test_an_idle_session_whose_log_only_grew_metadata_is_not_summarized_again@initial/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790558175,
+  594062700
+ ],
+ "logs/test_harvest_run/test_harvest_counts_new_and_updated_from_the_store_result/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790561692,
+  601981900
+ ],
+ "logs/test_harvest_run/test_harvest_counts_new_and_updated_from_the_store_result/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790565209,
+  609901100
+ ],
+ "logs/test_harvest_run/test_harvest_counts_parked_appends/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790568726,
+  617820300
+ ],
+ "logs/test_harvest_run/test_harvest_counts_parked_appends/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790572243,
+  625739500
+ ],
+ "logs/test_harvest_run/test_harvest_does_not_read_sessions_from_the_store/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790575760,
+  633658700
+ ],
+ "logs/test_harvest_run/test_harvest_does_not_read_sessions_from_the_store/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790579277,
+  641577900
+ ],
+ "logs/test_harvest_run/test_harvest_end_to_end_creates_sessions/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790582794,
+  649497100
+ ],
+ "logs/test_harvest_run/test_harvest_end_to_end_creates_sessions/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790586311,
+  657416300
+ ],
+ "logs/test_harvest_run/test_harvest_is_idempotent_on_second_run/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790589828,
+  665335500
+ ],
+ "logs/test_harvest_run/test_harvest_is_idempotent_on_second_run/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790593345,
+  673254600
+ ],
+ "logs/test_harvest_run/test_harvest_keeps_the_new_state_file_when_an_old_one_still_exists/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790596862,
+  681173800
+ ],
+ "logs/test_harvest_run/test_harvest_keeps_the_new_state_file_when_an_old_one_still_exists/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790600379,
+  689093000
+ ],
+ "logs/test_harvest_run/test_harvest_moves_the_state_file_out_of_the_repo_once/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790603896,
+  697012200
+ ],
+ "logs/test_harvest_run/test_harvest_moves_the_state_file_out_of_the_repo_once/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790607413,
+  704931400
+ ],
+ "logs/test_harvest_run/test_harvest_raises_without_parsing_logs_when_the_api_is_unreachable/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790610930,
+  712850600
+ ],
+ "logs/test_harvest_run/test_harvest_raises_without_parsing_logs_when_the_api_is_unreachable/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790614447,
+  720769800
+ ],
+ "logs/test_harvest_run/test_harvest_sends_active_intervals/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790617964,
+  728689000
+ ],
+ "logs/test_harvest_run/test_harvest_sends_active_intervals/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790621481,
+  736608200
+ ],
+ "logs/test_harvest_run/test_harvest_sends_files_written/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790624998,
+  744527400
+ ],
+ "logs/test_harvest_run/test_harvest_sends_files_written/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790628515,
+  752446600
+ ],
+ "logs/test_harvest_run/test_harvest_sends_files_written@initial/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790632032,
+  760365700
+ ],
+ "logs/test_harvest_run/test_harvest_sends_tokens_priced_from_config/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790635549,
+  768284900
+ ],
+ "logs/test_harvest_run/test_harvest_sends_tokens_priced_from_config/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790639066,
+  776204100
+ ],
+ "logs/test_harvest_run/test_harvest_sends_tokens_priced_from_config@initial/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790642583,
+  784123300
+ ],
+ "logs/test_harvest_run/test_harvest_skips_excluded_cwd/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790646100,
+  792042500
+ ],
+ "logs/test_harvest_run/test_harvest_skips_excluded_cwd/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790649617,
+  799961700
+ ],
+ "logs/test_harvest_run/test_refresh_meta_honours_excluded_cwds/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790653134,
+  807880900
+ ],
+ "logs/test_harvest_run/test_refresh_meta_honours_excluded_cwds/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790656651,
+  815800100
+ ],
+ "logs/test_harvest_run/test_refresh_meta_honours_excluded_cwds@initial/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790660168,
+  823719300
+ ],
+ "logs/test_harvest_run/test_refresh_meta_ignores_bookmarks_and_sends_only_derived_fields/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790663685,
+  831638500
+ ],
+ "logs/test_harvest_run/test_refresh_meta_ignores_bookmarks_and_sends_only_derived_fields/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790667202,
+  839557700
+ ],
+ "logs/test_harvest_run/test_refresh_meta_ignores_bookmarks_and_sends_only_derived_fields@initial/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790670719,
+  847476800
+ ],
+ "logs/test_harvest_run/test_refresh_meta_looks_at_every_log_by_default/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1000000000,
+  0
+ ],
+ "logs/test_harvest_run/test_refresh_meta_looks_at_every_log_by_default/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1000000000,
+  0
+ ],
+ "logs/test_harvest_run/test_refresh_meta_reports_a_request_that_did_not_land/claude_projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790681270,
+  871234400
+ ],
+ "logs/test_harvest_run/test_refresh_meta_reports_a_request_that_did_not_land/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790684787,
+  879153600
+ ],
+ "logs/test_harvest_run/test_refresh_meta_reports_a_request_that_did_not_land@initial/codex_sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790688304,
+  887072800
+ ],
+ "logs/test_harvest_run/test_since_filters_old_files/projects/-work-proj-a/old.jsonl": [
+  1790691821,
+  894992000
+ ],
+ "logs/test_harvest_run/test_trivial_session_skipped_without_summarizing/projects/-work-x/s.jsonl": [
+  1790695338,
+  902911200
+ ],
+ "logs/test_parsers/test_claude_a_newer_subagent_log_moves_the_session_mtime/-work-proj/cc-files.jsonl": [
+  1000000000,
+  0
+ ],
+ "logs/test_parsers/test_claude_a_newer_subagent_log_moves_the_session_mtime/-work-proj/cc-files/subagents/agent-a1.jsonl": [
+  1000300000,
+  0
+ ],
+ "logs/test_parsers/test_claude_artifacts_from_subagents_and_an_older_publish_read_later/-work-proj/cc-art.jsonl": [
+  1790705889,
+  926668800
+ ],
+ "logs/test_parsers/test_claude_artifacts_from_subagents_and_an_older_publish_read_later/-work-proj/cc-art/subagents/agent-a1.jsonl": [
+  1790709406,
+  934587900
+ ],
+ "logs/test_parsers/test_claude_artifacts_keep_publishes_only/s.jsonl": [
+  1790712923,
+  942507100
+ ],
+ "logs/test_parsers/test_claude_files_written_from_file_tools/s.jsonl": [
+  1790716440,
+  950426300
+ ],
+ "logs/test_parsers/test_claude_iter_sessions_finds_fixture/projects/-work-proj-a/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790719957,
+  958345500
+ ],
+ "logs/test_parsers/test_claude_subagent_transcripts_feed_the_parent_session/-work-proj/cc-files.jsonl": [
+  1790723474,
+  966264700
+ ],
+ "logs/test_parsers/test_claude_subagent_transcripts_feed_the_parent_session/-work-proj/cc-files/subagents/agent-a1.jsonl": [
+  1790726991,
+  974183900
+ ],
+ "logs/test_parsers/test_codex_a_header_inside_added_text_is_not_a_file/rollout.jsonl": [
+  1790730508,
+  982103100
+ ],
+ "logs/test_parsers/test_codex_bare_windows_paths_are_kept_intact/rollout.jsonl": [
+  1790734025,
+  990022300
+ ],
+ "logs/test_parsers/test_codex_decodes_unicode_escapes_in_the_literal/rollout.jsonl": [
+  1790737542,
+  997941500
+ ],
+ "logs/test_parsers/test_codex_escaped_quote_in_path_does_not_swallow_the_patch/rollout.jsonl": [
+  1790741059,
+  5860700
+ ],
+ "logs/test_parsers/test_codex_escaped_windows_path_keeps_its_backslashes/rollout.jsonl": [
+  1790744576,
+  13779900
+ ],
+ "logs/test_parsers/test_codex_files_written_from_apply_patch/rollout.jsonl": [
+  1790748093,
+  21699000
+ ],
+ "logs/test_parsers/test_codex_function_call_argv_lists_are_searched/rollout.jsonl": [
+  1790751610,
+  29618200
+ ],
+ "logs/test_parsers/test_codex_heredoc_patch_is_read_without_decoding/rollout.jsonl": [
+  1790755127,
+  37537400
+ ],
+ "logs/test_parsers/test_codex_ignores_a_header_mentioned_mid_line_in_code/rollout.jsonl": [
+  1790758644,
+  45456600
+ ],
+ "logs/test_parsers/test_codex_iter_sessions_finds_fixture/sessions/2026/09/18/rollout-2026-09-18T09-00-00-11112222.jsonl": [
+  1790762161,
+  53375800
+ ],
+ "logs/test_parsers/test_codex_missing_meta_returns_none/rollout-empty.jsonl": [
+  1790765678,
+  61295000
+ ],
+ "logs/test_parsers/test_codex_patch_bound_to_a_variable_first/rollout.jsonl": [
+  1790769195,
+  69214200
+ ],
+ "logs/test_tokens/test_claude_a_resumed_subagent_replaying_an_earlier_snapshot_does_not_undo_the_final_count/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790772712,
+  77133400
+ ],
+ "logs/test_tokens/test_claude_a_resumed_subagent_replaying_an_earlier_snapshot_does_not_undo_the_final_count/proj/abcd1234-ef56-7890-ab12-cd34ef567890/subagents/agent-a.jsonl": [
+  1000000000,
+  0
+ ],
+ "logs/test_tokens/test_claude_a_resumed_subagent_replaying_an_earlier_snapshot_does_not_undo_the_final_count/proj/abcd1234-ef56-7890-ab12-cd34ef567890/subagents/agent-b.jsonl": [
+  2000000000,
+  0
+ ],
+ "logs/test_tokens/test_claude_advisor_iterations_are_counted_on_their_own_model/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790783263,
+  100891000
+ ],
+ "logs/test_tokens/test_claude_counts_a_response_once_however_many_records_repeat_its_id/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790786780,
+  108810100
+ ],
+ "logs/test_tokens/test_claude_fast_mode_is_its_own_model_and_synthetic_turns_are_skipped/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790790297,
+  116729300
+ ],
+ "logs/test_tokens/test_claude_inline_sidechain_and_subagent_logs_are_subagent_usage/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790793814,
+  124648500
+ ],
+ "logs/test_tokens/test_claude_inline_sidechain_and_subagent_logs_are_subagent_usage/proj/abcd1234-ef56-7890-ab12-cd34ef567890/subagents/agent-a1.jsonl": [
+  1790797331,
+  132567700
+ ],
+ "logs/test_tokens/test_claude_inline_sidechain_and_subagent_logs_are_subagent_usage/proj/abcd1234-ef56-7890-ab12-cd34ef567890/subagents/workflows/wf_1/agent-a2.jsonl": [
+  1790800848,
+  140486900
+ ],
+ "logs/test_tokens/test_claude_iter_sessions_never_parses_a_workflow_transcript_as_a_session/projects/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790804365,
+  148406100
+ ],
+ "logs/test_tokens/test_claude_iter_sessions_never_parses_a_workflow_transcript_as_a_session/projects/proj/abcd1234-ef56-7890-ab12-cd34ef567890/subagents/workflows/wf_1/agent-a.jsonl": [
+  1790807882,
+  156325300
+ ],
+ "logs/test_tokens/test_claude_splits_cache_writes_into_5m_and_1h/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790811399,
+  164244500
+ ],
+ "logs/test_tokens/test_claude_takes_the_last_record_of_a_response_streamed_into_a_subagent_log/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790814916,
+  172163700
+ ],
+ "logs/test_tokens/test_claude_takes_the_last_record_of_a_response_streamed_into_a_subagent_log/proj/abcd1234-ef56-7890-ab12-cd34ef567890/subagents/agent-a.jsonl": [
+  1790818433,
+  180082900
+ ],
+ "logs/test_tokens/test_claude_tokens_do_not_change_text_or_turns/b/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790821950,
+  188002100
+ ],
+ "logs/test_tokens/test_claude_tokens_do_not_change_text_or_turns/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1790825467,
+  195921200
+ ],
+ "logs/test_tokens/test_claude_workflow_subagents_count_for_mtime_and_files_written/proj/abcd1234-ef56-7890-ab12-cd34ef567890.jsonl": [
+  1000000000,
+  0
+ ],
+ "logs/test_tokens/test_claude_workflow_subagents_count_for_mtime_and_files_written/proj/abcd1234-ef56-7890-ab12-cd34ef567890/subagents/workflows/wf_1/agent-a.jsonl": [
+  2000000000,
+  0
+ ],
+ "logs/test_tokens/test_codex_counter_restart_does_not_lose_the_first_run/r.jsonl": [
+  1790836018,
+  219678800
+ ],
+ "logs/test_tokens/test_codex_counts_each_request_under_its_model_with_uncached_input/r.jsonl": [
+  1790839535,
+  227598000
+ ],
+ "logs/test_tokens/test_codex_fork_counts_once_when_archived_and_still_in_sessions/archived_sessions/rollout-fork-a.jsonl": [
+  1790843052,
+  235517200
+ ],
+ "logs/test_tokens/test_codex_fork_counts_once_when_archived_and_still_in_sessions/sessions/2026/09/18/rollout-fork-a.jsonl": [
+  1790846569,
+  243436400
+ ],
+ "logs/test_tokens/test_codex_fork_counts_once_when_archived_and_still_in_sessions/sessions/2026/09/18/rollout-parent.jsonl": [
+  1790850086,
+  251355600
+ ],
+ "logs/test_tokens/test_codex_fork_mtime_is_the_parents/sessions/2026/09/18/rollout-fork-a.jsonl": [
+  2000000000,
+  0
+ ],
+ "logs/test_tokens/test_codex_fork_mtime_is_the_parents/sessions/2026/09/18/rollout-parent.jsonl": [
+  1000000000,
+  0
+ ],
+ "logs/test_tokens/test_codex_fork_usage_is_the_parent_sessions_subagent_usage/sessions/2026/09/18/rollout-fork-a.jsonl": [
+  1790860637,
+  275113200
+ ],
+ "logs/test_tokens/test_codex_fork_usage_is_the_parent_sessions_subagent_usage/sessions/2026/09/18/rollout-fork-b.jsonl": [
+  1790864154,
+  283032300
+ ],
+ "logs/test_tokens/test_codex_fork_usage_is_the_parent_sessions_subagent_usage/sessions/2026/09/18/rollout-memory.jsonl": [
+  1790867671,
+  290951500
+ ],
+ "logs/test_tokens/test_codex_fork_usage_is_the_parent_sessions_subagent_usage/sessions/2026/09/18/rollout-parent.jsonl": [
+  1790871188,
+  298870700
+ ],
+ "logs/test_tokens/test_codex_uncached_input_never_goes_negative/r.jsonl": [
+  1790874705,
+  306789900
+ ],
+ "logs/test_tokens/test_codex_without_token_counts_is_unknown_not_zero/r.jsonl": [
+  1790878222,
+  314709100
+ ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "worklog-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "badge:objects": "node scripts/badge-objects.mjs",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run && node scripts/test-tz.mjs",
+    "typecheck": "tsc --noEmit",
+    "shots:v2": "node scripts/v2-shots.mjs",
+    "check:m": "node scripts/m-overflow.mjs"
+  },
+  "dependencies": {
+    "@holiday-jp/holiday_jp": "2.5.2",
+    "@tanstack/react-query": "^5.103.2",
+    "ascii.rest": "0.4.0",
+    "echarts": "^5.6.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@iconify-json/fluent-emoji-high-contrast": "1.2.6",
+    "@phosphor-icons/core": "2.1.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^30.1.0",
+    "playwright-core": "^1.63.0",
+    "svg-path-bbox": "2.1.0",
+    "svgpath": "2.6.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
+  }
+}

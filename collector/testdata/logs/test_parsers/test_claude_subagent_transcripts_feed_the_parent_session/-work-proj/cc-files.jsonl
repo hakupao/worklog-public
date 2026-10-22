@@ -1,0 +1,2 @@
+{"type": "user", "sessionId": "cc-files", "cwd": "/work/proj", "timestamp": "2026-09-18T09:00:00.000Z", "message": {"role": "user", "content": "調べて書いて"}}
+{"type": "assistant", "sessionId": "cc-files", "cwd": "/work/proj", "isSidechain": false, "timestamp": "2026-09-18T09:01:00.000Z", "message": {"role": "assistant", "content": [{"type": "tool_use", "name": "Write", "input": {"file_path": "/work/proj/main.md"}}]}}

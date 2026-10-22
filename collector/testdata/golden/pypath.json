@@ -1,0 +1,983 @@
+{
+ "home": "/home/wl",
+ "join": {
+  "posix": [
+   {
+    "a": "/work",
+    "b": "a.md",
+    "out": "/work/a.md"
+   },
+   {
+    "a": "/work/",
+    "b": "a.md",
+    "out": "/work/a.md"
+   },
+   {
+    "a": "/work",
+    "b": "/abs.md",
+    "out": "/abs.md"
+   },
+   {
+    "a": "/work",
+    "b": "../x",
+    "out": "/work/../x"
+   },
+   {
+    "a": "",
+    "b": "a",
+    "out": "a"
+   },
+   {
+    "a": "/work",
+    "b": "",
+    "out": "/work/"
+   },
+   {
+    "a": "/work",
+    "b": "sub\\x.md",
+    "out": "/work/sub\\x.md"
+   },
+   {
+    "a": "//server/share",
+    "b": "x",
+    "out": "//server/share/x"
+   },
+   {
+    "a": "/",
+    "b": "a",
+    "out": "/a"
+   }
+  ],
+  "windows": [
+   {
+    "a": "C:\\work",
+    "b": "a.md",
+    "out": "C:\\work\\a.md"
+   },
+   {
+    "a": "C:\\work\\",
+    "b": "a.md",
+    "out": "C:\\work\\a.md"
+   },
+   {
+    "a": "C:\\work",
+    "b": "sub\\x.md",
+    "out": "C:\\work\\sub\\x.md"
+   },
+   {
+    "a": "C:\\work",
+    "b": "sub/x.md",
+    "out": "C:\\work\\sub/x.md"
+   },
+   {
+    "a": "C:\\work",
+    "b": "\\rooted.md",
+    "out": "C:\\rooted.md"
+   },
+   {
+    "a": "C:\\work",
+    "b": "D:relative.md",
+    "out": "D:relative.md"
+   },
+   {
+    "a": "C:\\work",
+    "b": "D:\\abs.md",
+    "out": "D:\\abs.md"
+   },
+   {
+    "a": "C:\\work",
+    "b": "c:rel.md",
+    "out": "c:\\work\\rel.md"
+   },
+   {
+    "a": "\\\\server\\share\\proj",
+    "b": "a.md",
+    "out": "\\\\server\\share\\proj\\a.md"
+   },
+   {
+    "a": "\\\\server\\share",
+    "b": "x",
+    "out": "\\\\server\\share\\x"
+   },
+   {
+    "a": "C:",
+    "b": "a.md",
+    "out": "C:a.md"
+   },
+   {
+    "a": "C:\\",
+    "b": "a",
+    "out": "C:\\a"
+   },
+   {
+    "a": "C:\\work",
+    "b": "..\\..\\..\\x",
+    "out": "C:\\work\\..\\..\\..\\x"
+   },
+   {
+    "a": "C:\\work",
+    "b": "/fwd.md",
+    "out": "C:/fwd.md"
+   },
+   {
+    "a": "C:\\Work",
+    "b": "c:\\work\\x.md",
+    "out": "c:\\work\\x.md"
+   }
+  ]
+ },
+ "normpath": {
+  "posix": [
+   {
+    "in": "/work/proj/backend/../evidence/x.md",
+    "out": "/work/proj/evidence/x.md"
+   },
+   {
+    "in": "/a/./b//c/",
+    "out": "/a/b/c"
+   },
+   {
+    "in": "//a/b",
+    "out": "//a/b"
+   },
+   {
+    "in": "///a/b",
+    "out": "/a/b"
+   },
+   {
+    "in": "/../x",
+    "out": "/x"
+   },
+   {
+    "in": "/a/b/../../..",
+    "out": "/"
+   },
+   {
+    "in": "a/../../b",
+    "out": "../b"
+   },
+   {
+    "in": "",
+    "out": "."
+   },
+   {
+    "in": ".",
+    "out": "."
+   },
+   {
+    "in": "/",
+    "out": "/"
+   },
+   {
+    "in": "/a/b/.",
+    "out": "/a/b"
+   },
+   {
+    "in": "/a/ /../b",
+    "out": "/a/b"
+   }
+  ],
+  "windows": [
+   {
+    "in": "C:\\Work\\Proj\\src\\..\\docs\\c.md",
+    "out": "C:\\Work\\Proj\\docs\\c.md"
+   },
+   {
+    "in": "C:/Users/Me/Proj\\mixed/c.md",
+    "out": "C:\\Users\\Me\\Proj\\mixed\\c.md"
+   },
+   {
+    "in": "C:\\..\\x.md",
+    "out": "C:\\x.md"
+   },
+   {
+    "in": "C:\\..\\..\\x",
+    "out": "C:\\x"
+   },
+   {
+    "in": "\\\\server\\share\\docs\\..\\..\\b.md",
+    "out": "\\\\server\\share\\b.md"
+   },
+   {
+    "in": "\\\\server\\share\\",
+    "out": "\\\\server\\share\\"
+   },
+   {
+    "in": "//server/share/x",
+    "out": "\\\\server\\share\\x"
+   },
+   {
+    "in": "C:",
+    "out": "C:"
+   },
+   {
+    "in": "C:x\\..\\y",
+    "out": "C:y"
+   },
+   {
+    "in": "C:\\a\\.\\b\\\\c\\",
+    "out": "C:\\a\\b\\c"
+   },
+   {
+    "in": "\\\\?\\C:\\x\\..\\y",
+    "out": "\\\\?\\C:\\y"
+   },
+   {
+    "in": "D:relative.md",
+    "out": "D:relative.md"
+   },
+   {
+    "in": "\\rooted.md",
+    "out": "\\rooted.md"
+   },
+   {
+    "in": "c:/",
+    "out": "c:\\"
+   },
+   {
+    "in": "a\\..\\..\\b",
+    "out": "..\\b"
+   },
+   {
+    "in": "",
+    "out": "."
+   },
+   {
+    "in": "C:\\Users\\Me\\Proj\\sub\\..\\..\\Proj\\d.md",
+    "out": "C:\\Users\\Me\\Proj\\d.md"
+   },
+   {
+    "in": "\\\\server",
+    "out": "\\\\server"
+   },
+   {
+    "in": "\\\\server\\share\\.\\..\\x",
+    "out": "\\\\server\\share\\x"
+   }
+  ]
+ },
+ "parts": {
+  "posix": [
+   {
+    "in": "/work/proj/a.md",
+    "parts": [
+     "/",
+     "work",
+     "proj",
+     "a.md"
+    ]
+   },
+   {
+    "in": "/work//proj/",
+    "parts": [
+     "/",
+     "work",
+     "proj"
+    ]
+   },
+   {
+    "in": "//server/share/x",
+    "parts": [
+     "//",
+     "server",
+     "share",
+     "x"
+    ]
+   },
+   {
+    "in": "///a",
+    "parts": [
+     "/",
+     "a"
+    ]
+   },
+   {
+    "in": "relative/x",
+    "parts": [
+     "relative",
+     "x"
+    ]
+   },
+   {
+    "in": "/",
+    "parts": [
+     "/"
+    ]
+   },
+   {
+    "in": "",
+    "parts": []
+   },
+   {
+    "in": "/a/./b",
+    "parts": [
+     "/",
+     "a",
+     "b"
+    ]
+   }
+  ],
+  "windows": [
+   {
+    "in": "C:\\Work\\Proj\\a.md",
+    "parts": [
+     "C:\\",
+     "Work",
+     "Proj",
+     "a.md"
+    ]
+   },
+   {
+    "in": "c:/work/proj/",
+    "parts": [
+     "c:\\",
+     "work",
+     "proj"
+    ]
+   },
+   {
+    "in": "\\\\server\\share\\x",
+    "parts": [
+     "\\\\server\\share\\",
+     "x"
+    ]
+   },
+   {
+    "in": "C:",
+    "parts": [
+     "C:"
+    ]
+   },
+   {
+    "in": "C:x",
+    "parts": [
+     "C:",
+     "x"
+    ]
+   },
+   {
+    "in": "\\rooted",
+    "parts": [
+     "\\",
+     "rooted"
+    ]
+   },
+   {
+    "in": "relative\\x",
+    "parts": [
+     "relative",
+     "x"
+    ]
+   },
+   {
+    "in": "C:\\",
+    "parts": [
+     "C:\\"
+    ]
+   },
+   {
+    "in": "//server/share/x",
+    "parts": [
+     "\\\\server\\share\\",
+     "x"
+    ]
+   },
+   {
+    "in": "C:\\a\\.\\b",
+    "parts": [
+     "C:\\",
+     "a",
+     "b"
+    ]
+   },
+   {
+    "in": "\\\\?\\C:\\x",
+    "parts": [
+     "\\\\?\\C:\\",
+     "x"
+    ]
+   }
+  ]
+ },
+ "sorted": {
+  "posix": [
+   {
+    "in": [
+     "/r/a/x.jsonl",
+     "/r/a-b/x.jsonl",
+     "/r/a.b/x.jsonl",
+     "/r/a b/x.jsonl",
+     "/r/A/x.jsonl",
+     "/r/a/b/x.jsonl",
+     "/r/a/x-y.jsonl",
+     "/r/a/x.jsonl.bak",
+     "/r/é/x.jsonl",
+     "/r/😀/x.jsonl",
+     "/r/Ａ/x.jsonl"
+    ],
+    "sorted": [
+     "/r/A/x.jsonl",
+     "/r/a/b/x.jsonl",
+     "/r/a/x-y.jsonl",
+     "/r/a/x.jsonl",
+     "/r/a/x.jsonl.bak",
+     "/r/a b/x.jsonl",
+     "/r/a-b/x.jsonl",
+     "/r/a.b/x.jsonl",
+     "/r/é/x.jsonl",
+     "/r/Ａ/x.jsonl",
+     "/r/😀/x.jsonl"
+    ]
+   },
+   {
+    "in": [
+     "/s/2026/09/18/rollout-b.jsonl",
+     "/s/2026/09/18/rollout-a.jsonl",
+     "/s/2026/10/01/rollout-a.jsonl",
+     "/s/2026/09/180/rollout.jsonl",
+     "/s/2026/09/18-x/rollout.jsonl",
+     "/s/2026/09/18/sub/rollout.jsonl"
+    ],
+    "sorted": [
+     "/s/2026/09/18/rollout-a.jsonl",
+     "/s/2026/09/18/rollout-b.jsonl",
+     "/s/2026/09/18/sub/rollout.jsonl",
+     "/s/2026/09/18-x/rollout.jsonl",
+     "/s/2026/09/180/rollout.jsonl",
+     "/s/2026/10/01/rollout-a.jsonl"
+    ]
+   },
+   {
+    "in": [
+     "/p/s1.jsonl",
+     "/p/s1/subagents/agent-a.jsonl",
+     "/p/s1/subagents/workflows/wf/agent-b.jsonl",
+     "/p/s10.jsonl",
+     "/p/s1-x.jsonl",
+     "/p/S1.jsonl"
+    ],
+    "sorted": [
+     "/p/S1.jsonl",
+     "/p/s1/subagents/agent-a.jsonl",
+     "/p/s1/subagents/workflows/wf/agent-b.jsonl",
+     "/p/s1-x.jsonl",
+     "/p/s1.jsonl",
+     "/p/s10.jsonl"
+    ]
+   }
+  ],
+  "windows": [
+   {
+    "in": [
+     "/r/a/x.jsonl",
+     "/r/a-b/x.jsonl",
+     "/r/a.b/x.jsonl",
+     "/r/a b/x.jsonl",
+     "/r/A/x.jsonl",
+     "/r/a/b/x.jsonl",
+     "/r/a/x-y.jsonl",
+     "/r/a/x.jsonl.bak",
+     "/r/é/x.jsonl",
+     "/r/😀/x.jsonl",
+     "/r/Ａ/x.jsonl"
+    ],
+    "sorted": [
+     "\\r\\a\\b\\x.jsonl",
+     "\\r\\a\\x-y.jsonl",
+     "\\r\\a\\x.jsonl",
+     "\\r\\A\\x.jsonl",
+     "\\r\\a\\x.jsonl.bak",
+     "\\r\\a b\\x.jsonl",
+     "\\r\\a-b\\x.jsonl",
+     "\\r\\a.b\\x.jsonl",
+     "\\r\\é\\x.jsonl",
+     "\\r\\Ａ\\x.jsonl",
+     "\\r\\😀\\x.jsonl"
+    ]
+   },
+   {
+    "in": [
+     "/s/2026/09/18/rollout-b.jsonl",
+     "/s/2026/09/18/rollout-a.jsonl",
+     "/s/2026/10/01/rollout-a.jsonl",
+     "/s/2026/09/180/rollout.jsonl",
+     "/s/2026/09/18-x/rollout.jsonl",
+     "/s/2026/09/18/sub/rollout.jsonl"
+    ],
+    "sorted": [
+     "\\s\\2026\\09\\18\\rollout-a.jsonl",
+     "\\s\\2026\\09\\18\\rollout-b.jsonl",
+     "\\s\\2026\\09\\18\\sub\\rollout.jsonl",
+     "\\s\\2026\\09\\18-x\\rollout.jsonl",
+     "\\s\\2026\\09\\180\\rollout.jsonl",
+     "\\s\\2026\\10\\01\\rollout-a.jsonl"
+    ]
+   },
+   {
+    "in": [
+     "/p/s1.jsonl",
+     "/p/s1/subagents/agent-a.jsonl",
+     "/p/s1/subagents/workflows/wf/agent-b.jsonl",
+     "/p/s10.jsonl",
+     "/p/s1-x.jsonl",
+     "/p/S1.jsonl"
+    ],
+    "sorted": [
+     "\\p\\s1\\subagents\\agent-a.jsonl",
+     "\\p\\s1\\subagents\\workflows\\wf\\agent-b.jsonl",
+     "\\p\\s1-x.jsonl",
+     "\\p\\s1.jsonl",
+     "\\p\\S1.jsonl",
+     "\\p\\s10.jsonl"
+    ]
+   }
+  ]
+ },
+ "sorted_note": "sorted(Path objects): component-wise; Windows compares lower-cased components. str(p) of a PureWindowsPath uses backslashes",
+ "relative_to": [
+  {
+   "path": "/work/proj/sub",
+   "base": "/work/proj",
+   "posix": true,
+   "windows": true
+  },
+  {
+   "path": "/work/proj",
+   "base": "/work/proj",
+   "posix": true,
+   "windows": true
+  },
+  {
+   "path": "/work/project",
+   "base": "/work/proj",
+   "posix": false,
+   "windows": false
+  },
+  {
+   "path": "/work/proj",
+   "base": "/work/proj/",
+   "posix": true,
+   "windows": true
+  },
+  {
+   "path": "/Work/Proj",
+   "base": "/work/proj",
+   "posix": false,
+   "windows": true
+  },
+  {
+   "path": "work/proj",
+   "base": "work",
+   "posix": true,
+   "windows": true
+  },
+  {
+   "path": "C:\\Work\\Proj\\sub",
+   "base": "c:\\work\\proj",
+   "posix": false,
+   "windows": true
+  },
+  {
+   "path": "C:/Work/Proj/sub",
+   "base": "C:\\Work\\Proj",
+   "posix": false,
+   "windows": true
+  },
+  {
+   "path": "C:\\Work\\Project",
+   "base": "C:\\Work\\Proj",
+   "posix": false,
+   "windows": false
+  },
+  {
+   "path": "\\\\server\\share\\proj\\x",
+   "base": "\\\\SERVER\\Share\\proj",
+   "posix": false,
+   "windows": true
+  },
+  {
+   "path": "D:\\Work\\Proj",
+   "base": "C:\\Work\\Proj",
+   "posix": false,
+   "windows": false
+  },
+  {
+   "path": "C:\\Work\\Proj",
+   "base": "C:\\Work\\Proj\\",
+   "posix": false,
+   "windows": true
+  },
+  {
+   "path": "/work/proj",
+   "base": "C:\\work",
+   "posix": false,
+   "windows": false
+  },
+  {
+   "path": "C:\\work",
+   "base": "/work",
+   "posix": false,
+   "windows": false
+  },
+  {
+   "path": "",
+   "base": "",
+   "posix": true,
+   "windows": true
+  },
+  {
+   "path": "/a/b",
+   "base": "/a/./b",
+   "posix": true,
+   "windows": true
+  },
+  {
+   "path": "/a/b",
+   "base": "/a/c/../b",
+   "posix": false,
+   "windows": false
+  }
+ ],
+ "is_absolute_any": [
+  {
+   "in": "/a",
+   "out": true
+  },
+  {
+   "in": "a",
+   "out": false
+  },
+  {
+   "in": "C:\\a",
+   "out": true
+  },
+  {
+   "in": "C:/a",
+   "out": true
+  },
+  {
+   "in": "c:a",
+   "out": false
+  },
+  {
+   "in": "C:",
+   "out": false
+  },
+  {
+   "in": "\\\\s\\x",
+   "out": true
+  },
+  {
+   "in": "\\x",
+   "out": false
+  },
+  {
+   "in": "//s/x",
+   "out": true
+  },
+  {
+   "in": "",
+   "out": false
+  }
+ ],
+ "clean_paths": [
+  {
+   "paths": [
+    "/work/proj/backend/../evidence/x.md",
+    "/work/proj/evidence/x.md",
+    "/work/proj/.claude/worktrees/agent-1/docs/a.md",
+    "C:\\Work\\Proj\\.claude\\worktrees\\w\\b.md",
+    "C:\\Work\\Proj\\src\\..\\docs\\c.md"
+   ],
+   "cwd": "/work/proj",
+   "out": [
+    "/work/proj/evidence/x.md",
+    "C:\\Work\\Proj\\docs\\c.md"
+   ]
+  },
+  {
+   "paths": [
+    "/home/wl/.worklog/credentials.toml",
+    "C:\\Users\\Me\\AppData\\Local\\Temp\\x.txt",
+    "c:/users/me/appdata/local/temp/y.txt",
+    "/work/keep.md"
+   ],
+   "cwd": "/work",
+   "out": [
+    "/work/keep.md"
+   ]
+  },
+  {
+   "paths": [
+    "  /work/a.md  ",
+    "",
+    "   ",
+    "rel.md",
+    "./rel.md",
+    "../up.md",
+    "/work/a.md"
+   ],
+   "cwd": "/work/proj",
+   "out": [
+    "/work/a.md",
+    "/work/proj/rel.md",
+    "/work/up.md"
+   ]
+  },
+  {
+   "paths": [
+    "rel.md",
+    "/abs.md"
+   ],
+   "cwd": "",
+   "out": [
+    "/abs.md"
+   ]
+  },
+  {
+   "paths": [
+    "rel.md",
+    "/abs.md"
+   ],
+   "cwd": "relative/cwd",
+   "out": [
+    "/abs.md"
+   ]
+  },
+  {
+   "paths": [
+    "sub\\rel.md",
+    "sub/rel2.md",
+    "\\rooted.md",
+    "D:relative.md",
+    "//server/share/x.md"
+   ],
+   "cwd": "C:\\Users\\Me\\Proj",
+   "out": [
+    "C:\\Users\\Me\\Proj\\sub\\rel.md",
+    "C:\\Users\\Me\\Proj\\sub\\rel2.md",
+    "C:\\rooted.md",
+    "D:relative.md",
+    "//server/share/x.md"
+   ]
+  },
+  {
+   "paths": [
+    "a.md",
+    "..\\..\\other\\b.md"
+   ],
+   "cwd": "\\\\server\\share\\proj",
+   "out": [
+    "\\\\server\\share\\proj\\a.md",
+    "\\\\server\\share\\other\\b.md"
+   ]
+  },
+  {
+   "paths": [
+    "/tmp/x",
+    "/private/tmp/x",
+    "/var/folders/x",
+    "/private/var/folders/a/b",
+    "/tmpfile",
+    "/home/wl/.claude/x",
+    "/home/wl/.claudex/x",
+    "/home/wl/.codex/c",
+    "/home/wl/.worklog",
+    "/home/wl/.worklog/",
+    "/x/.claude/worktrees/",
+    "/x/.claude/worktreesX/y"
+   ],
+   "cwd": "/work",
+   "out": [
+    "/tmpfile",
+    "/home/wl/.claudex/x",
+    "/home/wl/.worklog",
+    "/x/.claude/worktrees",
+    "/x/.claude/worktreesX/y"
+   ]
+  },
+  {
+   "paths": [
+    "　/work/全角空白.md　",
+    "\u001c/work/sep.md",
+    "/work/案件😀/成果物.md"
+   ],
+   "cwd": "/work",
+   "out": [
+    "/work/全角空白.md",
+    "/work/sep.md",
+    "/work/案件😀/成果物.md"
+   ]
+  }
+ ],
+ "is_noise": [
+  {
+   "in": "/tmp/a",
+   "out": true
+  },
+  {
+   "in": "/tmp",
+   "out": false
+  },
+  {
+   "in": "/private/tmp/a",
+   "out": true
+  },
+  {
+   "in": "/var/folders/x",
+   "out": true
+  },
+  {
+   "in": "/home/wl/.claude/a",
+   "out": true
+  },
+  {
+   "in": "/home/wl/.codex/a",
+   "out": true
+  },
+  {
+   "in": "/home/wl/.worklog/a",
+   "out": true
+  },
+  {
+   "in": "/home/wl/.claude",
+   "out": false
+  },
+  {
+   "in": "/home/wl/other/a",
+   "out": false
+  },
+  {
+   "in": "/x/.claude/worktrees/w/a",
+   "out": true
+  },
+  {
+   "in": "C:\\x\\.claude\\worktrees\\w\\a",
+   "out": true
+  },
+  {
+   "in": "C:\\Users\\Me\\AppData\\Local\\Temp\\a",
+   "out": true
+  },
+  {
+   "in": "c:/USERS/me/APPDATA/local/TEMP/a",
+   "out": true
+  },
+  {
+   "in": "\\\\server\\share\\AppData\\Local\\Temp\\a",
+   "out": true
+  },
+  {
+   "in": "/home/u/appdata/local/temp/a",
+   "out": false
+  },
+  {
+   "in": "D:\\Work\\.CLAUDE\\WORKTREES\\x",
+   "out": true
+  },
+  {
+   "in": "/x/.Claude/worktrees/w",
+   "out": false
+  }
+ ],
+ "quote": [
+  {
+   "in": "macmini",
+   "out": "macmini"
+  },
+  {
+   "in": "mac mini",
+   "out": "mac%20mini"
+  },
+  {
+   "in": "win11",
+   "out": "win11"
+  },
+  {
+   "in": "開発機",
+   "out": "%E9%96%8B%E7%99%BA%E6%A9%9F"
+  },
+  {
+   "in": "a/b",
+   "out": "a/b"
+  },
+  {
+   "in": "a+b&c=d?e#f",
+   "out": "a%2Bb%26c%3Dd%3Fe%23f"
+  },
+  {
+   "in": "~user",
+   "out": "~user"
+  },
+  {
+   "in": "100%",
+   "out": "100%25"
+  },
+  {
+   "in": "a b",
+   "out": "a%20b"
+  },
+  {
+   "in": "é",
+   "out": "%C3%A9"
+  },
+  {
+   "in": "😀",
+   "out": "%F0%9F%98%80"
+  },
+  {
+   "in": "-_.~",
+   "out": "-_.~"
+  },
+  {
+   "in": "",
+   "out": ""
+  },
+  {
+   "in": "!*'();:@$,",
+   "out": "%21%2A%27%28%29%3B%3A%40%24%2C"
+  }
+ ],
+ "casefold": [
+  {
+   "in": "ABC",
+   "casefold": "abc",
+   "lower": "abc"
+  },
+  {
+   "in": "Straße",
+   "casefold": "strasse",
+   "lower": "straße"
+  },
+  {
+   "in": "İstanbul",
+   "casefold": "i̇stanbul",
+   "lower": "i̇stanbul"
+  },
+  {
+   "in": "ǅ",
+   "casefold": "ǆ",
+   "lower": "ǆ"
+  },
+  {
+   "in": "ﬁ",
+   "casefold": "fi",
+   "lower": "ﬁ"
+  },
+  {
+   "in": "Ｃ:\\Ｗork",
+   "casefold": "ｃ:\\ｗork",
+   "lower": "ｃ:\\ｗork"
+  },
+  {
+   "in": "ΣΑΣ",
+   "casefold": "σασ",
+   "lower": "σας"
+  },
+  {
+   "in": "Ǆ",
+   "casefold": "ǆ",
+   "lower": "ǆ"
+  }
+ ]
+}

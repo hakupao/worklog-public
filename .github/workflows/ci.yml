@@ -1,0 +1,145 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# 同一分支上后推的提交会取消还在跑的旧 run，避免排队浪费。
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # 每个 job 只在相关目录变化时跑（2026-10 Actions 额度用尽：一半以上的 push 只改了文档，却跑完全套，
+  # Windows job 还按双倍计费）。只改文档的 push 只剩这一个几秒钟的 job。
+  # app = web + server：两边的测试互相读对方的文件（prefs/defaults.json、badge 名单、web/package.json），
+  # 所以一起跑；docs/guide 是网页的「说明」页。collector = Go 采集器（go job 也跑 scripts/ 的发布脚本测试）。
+  # scripts = scripts/*.test.mjs（node --test）。改了本文件时全部重跑。
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      app: ${{ steps.f.outputs.app }}
+      collector: ${{ steps.f.outputs.collector }}
+      scripts: ${{ steps.f.outputs.scripts }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dorny/paths-filter@v3
+        id: f
+        with:
+          filters: |
+            ci: &ci
+              - .github/workflows/**
+            app:
+              - *ci
+              - web/**
+              - server/**
+              - docs/guide/**
+            collector:
+              - *ci
+              - collector/**
+              - scripts/**
+              - config.example.toml
+            scripts:
+              - *ci
+              - scripts/**
+
+  server:
+    name: server (typecheck + vitest)
+    needs: changes
+    if: needs.changes.outputs.app == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      # vitest 跑在本地 miniflare 上：D1 用 server/migrations/ 建表，
+      # Access 的测试密钥由 vitest.config.ts 当场生成，因此不需要任何 secret。
+      - run: npm test
+
+  web:
+    name: web (typecheck + vitest)
+    needs: changes
+    if: needs.changes.outputs.app == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+
+  go:
+    name: go (vet + test, ${{ matrix.os }})
+    needs: changes
+    if: needs.changes.outputs.collector == 'true'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    defaults:
+      run:
+        working-directory: collector
+    env:
+      CGO_ENABLED: "0"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: collector/go.mod
+          cache-dependency-path: collector/go.sum
+      - run: go vet ./...
+      - run: go test ./...
+      # Windows 行为是纯函数，两个 runner 都测；交叉编译只在 ubuntu 上检查一次。
+      - if: runner.os == 'Linux'
+        run: |
+          GOOS=windows GOARCH=amd64 go build -o /dev/null ./cmd/wl
+          GOOS=darwin GOARCH=arm64 go build -o /dev/null ./cmd/wl
+      # release-wl.sh 的参数/仓库检查（临时仓库 + 桩 Makefile，不发布）。
+      - if: runner.os == 'Linux'
+        run: bash ../scripts/tests/release-wl.sh
+      # Win11 脚本用 Windows PowerShell 5.1 解析；measure-wl.ps1 实际跑一次（Add-Type + 进程树轮询）。
+      - if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $bad = 0
+          foreach ($f in Get-ChildItem ..\scripts -Recurse -Filter *.ps1) {
+            $errs = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile($f.FullName, [ref]$null, [ref]$errs)
+            foreach ($e in $errs) { Write-Host "$($f.Name): $e"; $bad++ }
+          }
+          if ($bad) { exit 1 }
+          powershell -NoProfile -ExecutionPolicy Bypass -File ..\scripts\measure-wl.ps1 -Exe go -ArgLine version -Runs 2
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+
+  scripts:
+    name: scripts (node --test)
+    needs: changes
+    if: needs.changes.outputs.scripts == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      # scripts/*.test.mjs 只用 Node 内置模块，不需要 npm ci。Node 24 的 --test 不接受目录
+      # （`node --test scripts/` 会把目录当成一个测试文件而失败），所以传 glob，由 Node 自己展开。
+      - run: node --test 'scripts/*.test.mjs'
+      # install-skill.sh 的渲染结果与 scripts/tests/expected/ 逐字比对（没有 bin/wl 时必须拒绝）。
+      - run: bash scripts/tests/install-skill-render.sh

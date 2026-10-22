@@ -1,0 +1,4 @@
+{"type": "user", "sessionId": "gap00001-0000-0000-0000-000000000001", "cwd": "/work/gap", "isSidechain": false, "timestamp": "2026-09-18T09:00:00Z", "message": {"role": "user", "content": "開始"}}
+{"type": "assistant", "sessionId": "gap00001-0000-0000-0000-000000000001", "cwd": "/work/gap", "isSidechain": false, "timestamp": "2026-09-18T09:30:00Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "ちょうど 30 分"}]}}
+{"type": "user", "sessionId": "gap00001-0000-0000-0000-000000000001", "cwd": "/work/gap", "isSidechain": false, "timestamp": "2026-09-18T10:00:00.000001Z", "message": {"role": "user", "content": "30 分 + 1µs"}}
+{"type": "assistant", "sessionId": "gap00001-0000-0000-0000-000000000001", "cwd": "/work/gap", "isSidechain": false, "timestamp": "2026-09-18T10:10:00Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "終わり"}]}}

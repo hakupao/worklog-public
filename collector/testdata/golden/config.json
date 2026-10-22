@@ -1,0 +1,579 @@
+{
+ "note": "config.load with WORKLOG_ROOT=<ROOT> (holding the case's config.toml) and WORKLOG_HOME=<HOME> (holding the case's home files). An error is the exception type only (D5: Go prints one line instead)",
+ "example": {
+  "file": "config.example.toml",
+  "config": {
+   "machine": "macmini",
+   "root": "<ROOT>",
+   "home": "<HOME>",
+   "state_path": "<HOME>/harvest_state.json",
+   "requesters": [
+    [
+     "田中",
+     "田中さん（営業部）"
+    ]
+   ],
+   "projects": [
+    [
+     "/Volumes/Data/Projects/LEDGER",
+     "LEDGER"
+    ]
+   ],
+   "exclude_cwd_patterns": [
+    "scratch-workspaces"
+   ],
+   "exclude_prompt_patterns": [
+    "Review this change for security vulnerabilities"
+   ],
+   "pricing": {
+    "gpt-6-astra": {
+     "input": 10.0,
+     "output": 50.0,
+     "cache_read": 1.0,
+     "cache_write_5m": 12.5
+    },
+    "gpt-6-sol": {
+     "input": 2.0,
+     "output": 10.0,
+     "cache_read": 0.2,
+     "cache_write_5m": 2.5
+    },
+    "gpt-6.1-sol": {
+     "input": 2.0,
+     "output": 10.0,
+     "cache_read": 0.1,
+     "cache_write_5m": 2.5
+    },
+    "gpt-5.6-sol": {
+     "input": 4.0,
+     "output": 20.0,
+     "cache_read": 0.4,
+     "cache_write_5m": 5.0
+    },
+    "claude-fable-5-1": {
+     "input": 10.0,
+     "output": 50.0,
+     "cache_read": 0.25,
+     "cache_write_5m": 12.5,
+     "cache_write_1h": 20.0
+    },
+    "claude-fable-5": {
+     "input": 10.0,
+     "output": 50.0,
+     "cache_read": 1.0,
+     "cache_write_5m": 12.5,
+     "cache_write_1h": 20.0
+    },
+    "claude-opus-5-5": {
+     "input": 4.0,
+     "output": 20.0,
+     "cache_read": 0.2,
+     "cache_write_5m": 5.0,
+     "cache_write_1h": 8.0
+    },
+    "claude-opus-5-5:fast": {
+     "input": 8.0,
+     "output": 40.0
+    },
+    "claude-opus-5": {
+     "input": 5.0,
+     "output": 25.0,
+     "cache_read": 0.5,
+     "cache_write_5m": 6.25,
+     "cache_write_1h": 10.0
+    },
+    "claude-opus-4-8": {
+     "input": 5.0,
+     "output": 25.0,
+     "cache_read": 0.5,
+     "cache_write_5m": 6.25,
+     "cache_write_1h": 10.0
+    },
+    "claude-opus-4-7": {
+     "input": 5.0,
+     "output": 25.0,
+     "cache_read": 0.5,
+     "cache_write_5m": 6.25,
+     "cache_write_1h": 10.0
+    },
+    "claude-opus-4-6": {
+     "input": 5.0,
+     "output": 25.0,
+     "cache_read": 0.5,
+     "cache_write_5m": 6.25,
+     "cache_write_1h": 10.0
+    },
+    "claude-sonnet-5-5": {
+     "input": 2.0,
+     "output": 10.0,
+     "cache_read": 0.2,
+     "cache_write_5m": 2.5,
+     "cache_write_1h": 4.0
+    },
+    "claude-sonnet-5": {
+     "input": 2.0,
+     "output": 10.0,
+     "cache_read": 0.2,
+     "cache_write_5m": 2.5,
+     "cache_write_1h": 4.0
+    },
+    "claude-sonnet-4-6": {
+     "input": 3.0,
+     "output": 15.0,
+     "cache_read": 0.3,
+     "cache_write_5m": 3.75,
+     "cache_write_1h": 6.0
+    },
+    "claude-haiku-4-5": {
+     "input": 1.0,
+     "output": 5.0,
+     "cache_read": 0.1,
+     "cache_write_5m": 1.25,
+     "cache_write_1h": 2.0
+    }
+   },
+   "min_active_minutes": 3,
+   "summarize_model": "haiku",
+   "api_url": "https://worklog.example.com",
+   "api_token": null,
+   "access_client_id": null,
+   "access_client_secret": null
+  },
+  "stderr": []
+ },
+ "cases": [
+  {
+   "name": "minimal",
+   "config.toml": "machine=\"mac\"\n",
+   "home_files": {},
+   "config": {
+    "machine": "mac",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "no_machine",
+   "config.toml": "api_url=\"https://wl.example\"\n",
+   "home_files": {},
+   "config": {
+    "machine": "<platform.node()>",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": "https://wl.example",
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "credentials",
+   "config.toml": "machine=\"mac\"\napi_url=\"https://wl.example.workers.dev\"\n",
+   "home_files": {
+    "credentials.toml": "api_token=\"s3cret\"\naccess_client_id=\"cid\"\naccess_client_secret=\"csec\"\n"
+   },
+   "config": {
+    "machine": "mac",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": "https://wl.example.workers.dev",
+    "api_token": "s3cret",
+    "access_client_id": "cid",
+    "access_client_secret": "csec"
+   },
+   "stderr": []
+  },
+  {
+   "name": "token_in_config_ignored",
+   "config.toml": "machine=\"mac\"\napi_token=\"leaked\"\n",
+   "home_files": {},
+   "config": {
+    "machine": "mac",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "credentials_empty_token",
+   "config.toml": "machine=\"mac\"\n",
+   "home_files": {
+    "credentials.toml": "api_token=\"\"\naccess_client_id=5\n"
+   },
+   "config": {
+    "machine": "mac",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "credentials_unreadable",
+   "config.toml": "machine=\"mac\"\n",
+   "home_files": {
+    "credentials.toml": "api_token = \n"
+   },
+   "config": {
+    "machine": "mac",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": [
+    "worklog: ignoring unreadable credentials file <HOME>/credentials.toml (Invalid value (at line 1, column 13))"
+   ]
+  },
+  {
+   "name": "local_machine",
+   "config.toml": "machine=\"macmini\"\n",
+   "home_files": {
+    "local.toml": "machine = \"win11\"\n"
+   },
+   "config": {
+    "machine": "win11",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "local_empty",
+   "config.toml": "machine=\"macmini\"\n",
+   "home_files": {
+    "local.toml": "machine = \"\"\n"
+   },
+   "config": {
+    "machine": "macmini",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "local_not_string",
+   "config.toml": "machine=\"macmini\"\n",
+   "home_files": {
+    "local.toml": "machine = 11\n"
+   },
+   "config": {
+    "machine": "macmini",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "local_unreadable",
+   "config.toml": "machine=\"macmini\"\n",
+   "home_files": {
+    "local.toml": "machine = \n"
+   },
+   "config": {
+    "machine": "macmini",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": [
+    "worklog: ignoring unreadable local config <HOME>/local.toml (Invalid value (at line 1, column 11))"
+   ]
+  },
+  {
+   "name": "harvest_options",
+   "config.toml": "machine=\"m\"\n[harvest]\nmin_active_minutes = \"5\"\nexclude_cwd_patterns = [\"a\", \"b\"]\nexclude_prompt_patterns = []\n",
+   "home_files": {},
+   "config": {
+    "machine": "m",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [
+     "a",
+     "b"
+    ],
+    "exclude_prompt_patterns": [],
+    "pricing": {},
+    "min_active_minutes": 5,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "min_minutes_float",
+   "config.toml": "machine=\"m\"\n[harvest]\nmin_active_minutes = 2.9\n",
+   "home_files": {},
+   "config": {
+    "machine": "m",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 2,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "projects_tie_order",
+   "config.toml": "machine=\"m\"\n[projects]\n\"/work/tie\" = \"TieFirst\"\n\"/work/tie/\" = \"TieSecond\"\n'C:\\Work' = \"Win\"\n\"/work\" = \"Root\"\n",
+   "home_files": {},
+   "config": {
+    "machine": "m",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [
+     [
+      "/work/tie",
+      "TieFirst"
+     ],
+     [
+      "/work/tie/",
+      "TieSecond"
+     ],
+     [
+      "C:\\Work",
+      "Win"
+     ],
+     [
+      "/work",
+      "Root"
+     ]
+    ],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "pricing_ints",
+   "config.toml": "machine=\"m\"\n[pricing.\"x\"]\ninput = 4\noutput = 2.5\n[pricing.\"y:fast\"]\ninput = 1e1\n",
+   "home_files": {},
+   "config": {
+    "machine": "m",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {
+     "x": {
+      "input": 4.0,
+      "output": 2.5
+     },
+     "y:fast": {
+      "input": 10.0
+     }
+    },
+    "min_active_minutes": 3,
+    "summarize_model": "haiku",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "summarize_model",
+   "config.toml": "machine=\"m\"\nsummarize_model = \"sonnet\"\n",
+   "home_files": {},
+   "config": {
+    "machine": "m",
+    "root": "<ROOT>",
+    "home": "<HOME>",
+    "state_path": "<HOME>/harvest_state.json",
+    "requesters": [],
+    "projects": [],
+    "exclude_cwd_patterns": [],
+    "exclude_prompt_patterns": [
+     "Review this change for security vulnerabilities"
+    ],
+    "pricing": {},
+    "min_active_minutes": 3,
+    "summarize_model": "sonnet",
+    "api_url": null,
+    "api_token": null,
+    "access_client_id": null,
+    "access_client_secret": null
+   },
+   "stderr": []
+  },
+  {
+   "name": "malformed",
+   "config.toml": "machine = \"m\n",
+   "home_files": {},
+   "error": "TOMLDecodeError",
+   "stderr": []
+  },
+  {
+   "name": "bad_type_projects",
+   "config.toml": "machine=\"m\"\nprojects = 3\n",
+   "home_files": {},
+   "error": "ValidationError",
+   "stderr": []
+  }
+ ]
+}

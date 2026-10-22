@@ -1,0 +1,416 @@
+/* Design tokens. Every later task should consume these custom properties rather than
+   hard-coding colors/spacing, so a single edit here keeps the whole app consistent. */
+:root {
+  --font-sans:
+    "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", "PingFang SC", "Microsoft YaHei", system-ui,
+    sans-serif;
+
+  --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-border: #dde1e6;
+  --color-text: #1b1f24;
+  --color-text-muted: #6a7178;
+  --color-accent: #2f6fed;
+  --color-accent-contrast: #ffffff;
+  --color-warning: #b8790a;
+  --color-warning-bg: #fdf3dc;
+  --color-danger: #c8372c;
+  --color-danger-bg: #fbe6e3;
+
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+
+  --radius: 6px;
+  --content-max-width: 960px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #14171a;
+    --color-surface: #1c2024;
+    --color-surface-raised: #23282d;
+    --color-border: #33393f;
+    --color-text: #e7e9ec;
+    --color-text-muted: #9aa1a8;
+    --color-accent: #6ea1ff;
+    --color-accent-contrast: #0b1220;
+    --color-warning: #e8b34a;
+    --color-warning-bg: #3a2e10;
+    --color-danger: #f0776c;
+    --color-danger-bg: #3a1c19;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #14171a;
+  --color-surface: #1c2024;
+  --color-surface-raised: #23282d;
+  --color-border: #33393f;
+  --color-text: #e7e9ec;
+  --color-text-muted: #9aa1a8;
+  --color-accent: #6ea1ff;
+  --color-accent-contrast: #0b1220;
+  --color-warning: #e8b34a;
+  --color-warning-bg: #3a2e10;
+  --color-danger: #f0776c;
+  --color-danger-bg: #3a1c19;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
+
+/* Visible focus everywhere, including keyboard-only users of buttons/links/menu items. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius);
+}
+
+/* ---- banners ------------------------------------------------------------------------- */
+
+.banner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4);
+  font-weight: 500;
+}
+
+.banner--auth,
+.banner--stale {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---- toast --------------------------------------------------------------------------- */
+
+.toast-host {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 20;
+  max-width: min(360px, calc(100vw - var(--space-4) * 2));
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.12);
+}
+
+.toast--error {
+  border-color: var(--color-danger);
+}
+.toast--error .toast__message {
+  color: var(--color-danger);
+}
+
+.toast--info {
+  border-color: var(--color-accent);
+}
+
+.toast__message {
+  flex: 1;
+}
+
+.toast__action {
+  border: 1px solid currentColor;
+  background: transparent;
+  color: var(--color-accent);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-2);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.toast__close {
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  line-height: 1;
+  padding: var(--space-1);
+}
+
+.is-busy {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.is-error {
+  color: var(--color-danger);
+}
+
+/* ---- error boundary (final review A-C1) ------------------------------------------------ */
+
+.error-boundary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: var(--content-max-width);
+  margin: var(--space-4) auto;
+  padding: var(--space-4);
+  background: var(--color-danger-bg);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius);
+  color: var(--color-danger);
+}
+
+.error-boundary button {
+  border: 1px solid var(--color-danger);
+  background: transparent;
+  color: var(--color-danger);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-3);
+}
+
+/* ---- inline edit ------------------------------------------------------------------------ */
+
+.inline-edit {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.inline-edit__text--multiline { white-space: pre-wrap; }
+
+.inline-edit__field {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-surface);
+  resize: vertical;
+}
+
+.inline-edit__field.is-error {
+  border-color: var(--color-danger);
+}
+
+.inline-edit__field:disabled {
+  opacity: 0.6;
+}
+
+.inline-edit__restore {
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-accent);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-2);
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+.inline-edit__restore:hover {
+  background: var(--color-bg);
+}
+
+.inline-edit__error {
+  flex-basis: 100%;
+  font-size: 0.85em;
+}
+
+/* ---- task select / new-task dialog -------------------------------------------------------- */
+
+.task-select {
+  max-width: 240px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-surface);
+}
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 0.4);
+  z-index: 30;
+  padding: var(--space-4);
+}
+
+.dialog {
+  width: min(360px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--color-surface-raised);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.2);
+}
+
+.dialog__title {
+  margin: 0;
+  font-size: 1em;
+}
+
+.dialog__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 0.9em;
+  color: var(--color-text-muted);
+}
+
+.dialog__field input,
+.dialog__field textarea {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.dialog__error {
+  font-size: 0.85em;
+}
+
+/* task-form (task 9) is a `.dialog` with two more fields (受領日/考え方) than the base 3-field
+   shape — a touch wider so the date input and textarea don't feel cramped. */
+.task-form {
+  width: min(420px, 100%);
+}
+
+.dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.dialog__actions button {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-3);
+}
+
+.dialog__actions button[type="submit"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+/* ---- note form (task 8: 补记) ------------------------------------------------------------ */
+
+.note-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.note-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.note-form__field--text {
+  flex: 1 1 200px;
+  min-width: 120px;
+}
+
+.note-form__label {
+  font-size: 0.8em;
+  color: var(--color-text-muted);
+}
+
+.note-form input {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.note-form input.is-error {
+  border-color: var(--color-danger);
+}
+
+.note-form__text {
+  width: 100%;
+}
+
+.note-form__hours {
+  width: 140px;
+}
+
+.note-form__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.note-form__error {
+  flex-basis: 100%;
+  font-size: 0.85em;
+  color: var(--color-danger);
+}
+
+/* ---- phone width ---------------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  .toast-host {
+    left: var(--space-3);
+    right: var(--space-3);
+    max-width: none;
+  }
+}
+
+/* An empty InlineEdit's resting hint (see EMPTY_HINT): visible and clickable, but plainly not a value. */
+.inline-edit__empty {
+  color: var(--color-text-muted);
+  font-style: italic;
+}

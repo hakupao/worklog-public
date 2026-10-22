@@ -1,0 +1,540 @@
+{
+ "parse": [
+  {
+   "input": "2026-09-18T09:00:00.000Z",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00Z",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00.123Z",
+   "isoformat": "2026-09-18T09:00:00.123000+00:00",
+   "pydantic": "2026-09-18T09:00:00.123000Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00.1234567Z",
+   "isoformat": "2026-09-18T09:00:00.123456+00:00",
+   "pydantic": "2026-09-18T09:00:00.123456Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00.9999999Z",
+   "isoformat": "2026-09-18T09:00:00.999999+00:00",
+   "pydantic": "2026-09-18T09:00:00.999999Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00.5Z",
+   "isoformat": "2026-09-18T09:00:00.500000+00:00",
+   "pydantic": "2026-09-18T09:00:00.500000Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00.000001Z",
+   "isoformat": "2026-09-18T09:00:00.000001+00:00",
+   "pydantic": "2026-09-18T09:00:00.000001Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00.000000Z",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T18:00:00+09:00",
+   "isoformat": "2026-09-18T18:00:00+09:00",
+   "pydantic": "2026-09-18T18:00:00+09:00",
+   "aware": true,
+   "utc_offset_seconds": 32400,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T18:00:00.500+09:00",
+   "isoformat": "2026-09-18T18:00:00.500000+09:00",
+   "pydantic": "2026-09-18T18:00:00.500000+09:00",
+   "aware": true,
+   "utc_offset_seconds": 32400,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00-05:30",
+   "isoformat": "2026-09-18T09:00:00-05:30",
+   "pydantic": "2026-09-18T09:00:00-05:30",
+   "aware": true,
+   "utc_offset_seconds": -19800,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00+00:00",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00-00:00",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00+0900",
+   "isoformat": "2026-09-18T09:00:00+09:00",
+   "pydantic": "2026-09-18T09:00:00+09:00",
+   "aware": true,
+   "utc_offset_seconds": 32400,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00+09",
+   "isoformat": "2026-09-18T09:00:00+09:00",
+   "pydantic": "2026-09-18T09:00:00+09:00",
+   "aware": true,
+   "utc_offset_seconds": 32400,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00+09:00:30",
+   "isoformat": "2026-09-18T09:00:00+09:00:30",
+   "pydantic": "2026-09-18T09:00:00+09:00",
+   "aware": true,
+   "utc_offset_seconds": 32430,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00",
+   "isoformat": "2026-09-18T09:00:00",
+   "pydantic": "2026-09-18T09:00:00",
+   "aware": false,
+   "utc_offset_seconds": null,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00.250000",
+   "isoformat": "2026-09-18T09:00:00.250000",
+   "pydantic": "2026-09-18T09:00:00.250000",
+   "aware": false,
+   "utc_offset_seconds": null,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00",
+   "isoformat": "2026-09-18T09:00:00",
+   "pydantic": "2026-09-18T09:00:00",
+   "aware": false,
+   "utc_offset_seconds": null,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09",
+   "isoformat": "2026-09-18T09:00:00",
+   "pydantic": "2026-09-18T09:00:00",
+   "aware": false,
+   "utc_offset_seconds": null,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18 09:00:00Z",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18",
+   "isoformat": "2026-09-18T00:00:00",
+   "pydantic": "2026-09-18T00:00:00",
+   "aware": false,
+   "utc_offset_seconds": null,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "20260918T090000Z",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T09:00:00,5Z",
+   "isoformat": "2026-09-18T09:00:00.500000+00:00",
+   "pydantic": "2026-09-18T09:00:00.500000Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-09-18T23:59:59.9999999Z",
+   "isoformat": "2026-09-18T23:59:59.999999+00:00",
+   "pydantic": "2026-09-18T23:59:59.999999Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-19"
+  },
+  {
+   "input": "2026-09-18T15:00:00Z",
+   "isoformat": "2026-09-18T15:00:00+00:00",
+   "pydantic": "2026-09-18T15:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-19"
+  },
+  {
+   "input": "2026-09-18T14:59:59.999999Z",
+   "isoformat": "2026-09-18T14:59:59.999999+00:00",
+   "pydantic": "2026-09-18T14:59:59.999999Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-12-31T15:00:00Z",
+   "isoformat": "2026-12-31T15:00:00+00:00",
+   "pydantic": "2026-12-31T15:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2027-01-01"
+  },
+  {
+   "input": "2026-09-18T09:00:00Zjunk",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '2026-09-18T09:00:00+00:00junk'"
+  },
+  {
+   "input": "2026-09-18T24:00:00Z",
+   "isoformat": "2026-09-19T00:00:00+00:00",
+   "pydantic": "2026-09-19T00:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-19"
+  },
+  {
+   "input": "yesterday",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: 'yesterday'"
+  },
+  {
+   "input": "2026-13-01T00:00:00Z",
+   "error": "ValueError",
+   "message": "month must be in 1..12, not 13"
+  },
+  {
+   "input": "2026-02-30T00:00:00Z",
+   "error": "ValueError",
+   "message": "day 30 must be in range 1..28 for month 2 in year 2026"
+  },
+  {
+   "input": "",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: ''"
+  },
+  {
+   "input": "Z",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '+00:00'"
+  },
+  {
+   "input": "2026-09-18T09:00:00 Z",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-W38-5",
+   "isoformat": "2026-09-18T00:00:00",
+   "pydantic": "2026-09-18T00:00:00",
+   "aware": false,
+   "utc_offset_seconds": null,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "2026-261",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '2026-261'"
+  },
+  {
+   "input": "2026-09-18T09:00:00.Z",
+   "isoformat": "2026-09-18T09:00:00+00:00",
+   "pydantic": "2026-09-18T09:00:00Z",
+   "aware": true,
+   "utc_offset_seconds": 0,
+   "jst_date": "2026-09-18"
+  },
+  {
+   "input": "２０２６-09-18T09:00:00Z",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '２０２６-09-18T09:00:00+00:00'"
+  }
+ ],
+ "parse_note": "claude_code._parse_timestamp = datetime.fromisoformat(s.replace('Z', '+00:00')); pydantic = the spelling model_dump_json gives (run._INTERVALS_JSON); jst_date = link._local_date",
+ "dates": [
+  {
+   "input": "2026-10-02",
+   "date": "2026-10-02"
+  },
+  {
+   "input": "20261002",
+   "date": "2026-10-02"
+  },
+  {
+   "input": "2026-W40-5",
+   "date": "2026-10-02"
+  },
+  {
+   "input": "2026W405",
+   "date": "2026-10-02"
+  },
+  {
+   "input": "2026-275",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '2026-275'"
+  },
+  {
+   "input": "2026275",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '2026275'"
+  },
+  {
+   "input": "2026-10-2",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '2026-10-2'"
+  },
+  {
+   "input": "2026-13-01",
+   "error": "ValueError",
+   "message": "month must be in 1..12, not 13"
+  },
+  {
+   "input": "2026-02-29",
+   "error": "ValueError",
+   "message": "day 29 must be in range 1..28 for month 2 in year 2026"
+  },
+  {
+   "input": "2028-02-29",
+   "date": "2028-02-29"
+  },
+  {
+   "input": "",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: ''"
+  },
+  {
+   "input": "yesterday",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: 'yesterday'"
+  },
+  {
+   "input": "2026/10/02",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '2026/10/02'"
+  },
+  {
+   "input": " 2026-10-02",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: ' 2026-10-02'"
+  },
+  {
+   "input": "2026-10-02T00:00:00",
+   "error": "ValueError",
+   "message": "Invalid isoformat string: '2026-10-02T00:00:00'"
+  }
+ ],
+ "dates_note": "date.fromisoformat (wl new --received, wl plan judge --date); D6: Go accepts YYYY-MM-DD and YYYYMMDD only",
+ "weeks": [
+  {
+   "now": "2026-10-13T12:00:00+09:00",
+   "previous_week": [
+    "2026-W41",
+    "2026-10-05",
+    "2026-10-11"
+   ],
+   "this_week": "2026-W42",
+   "days_to_judge": [
+    "2026-10-13",
+    "2026-10-12"
+   ]
+  },
+  {
+   "now": "2026-10-12T00:00:00+09:00",
+   "previous_week": [
+    "2026-W41",
+    "2026-10-05",
+    "2026-10-11"
+   ],
+   "this_week": "2026-W42",
+   "days_to_judge": [
+    "2026-10-12",
+    "2026-10-11"
+   ]
+  },
+  {
+   "now": "2026-10-11T23:59:59+09:00",
+   "previous_week": [
+    "2026-W40",
+    "2026-09-28",
+    "2026-10-04"
+   ],
+   "this_week": "2026-W41",
+   "days_to_judge": [
+    "2026-10-11",
+    "2026-10-10"
+   ]
+  },
+  {
+   "now": "2026-10-11T15:00:00+00:00",
+   "previous_week": [
+    "2026-W41",
+    "2026-10-05",
+    "2026-10-11"
+   ],
+   "this_week": "2026-W42",
+   "days_to_judge": [
+    "2026-10-12",
+    "2026-10-11"
+   ]
+  },
+  {
+   "now": "2027-01-03T12:00:00+09:00",
+   "previous_week": [
+    "2026-W52",
+    "2026-12-21",
+    "2026-12-27"
+   ],
+   "this_week": "2026-W53",
+   "days_to_judge": [
+    "2027-01-03",
+    "2027-01-02"
+   ]
+  },
+  {
+   "now": "2027-01-04T00:00:00+09:00",
+   "previous_week": [
+    "2026-W53",
+    "2026-12-28",
+    "2027-01-03"
+   ],
+   "this_week": "2027-W01",
+   "days_to_judge": [
+    "2027-01-04",
+    "2027-01-03"
+   ]
+  },
+  {
+   "now": "2026-12-31T23:00:00+09:00",
+   "previous_week": [
+    "2026-W52",
+    "2026-12-21",
+    "2026-12-27"
+   ],
+   "this_week": "2026-W53",
+   "days_to_judge": [
+    "2026-12-31",
+    "2026-12-30"
+   ]
+  },
+  {
+   "now": "2026-01-01T00:30:00+09:00",
+   "previous_week": [
+    "2025-W52",
+    "2025-12-22",
+    "2025-12-28"
+   ],
+   "this_week": "2026-W01",
+   "days_to_judge": [
+    "2026-01-01",
+    "2025-12-31"
+   ]
+  },
+  {
+   "now": "2020-12-31T12:00:00+09:00",
+   "previous_week": [
+    "2020-W52",
+    "2020-12-21",
+    "2020-12-27"
+   ],
+   "this_week": "2020-W53",
+   "days_to_judge": [
+    "2020-12-31",
+    "2020-12-30"
+   ]
+  }
+ ],
+ "week_bounds": [
+  {
+   "week": "2026-W39",
+   "bounds": [
+    "2026-09-21",
+    "2026-09-27"
+   ]
+  },
+  {
+   "week": "2026-W01",
+   "bounds": [
+    "2025-12-29",
+    "2026-01-04"
+   ]
+  },
+  {
+   "week": "2026-W53",
+   "bounds": [
+    "2026-12-28",
+    "2027-01-03"
+   ]
+  },
+  {
+   "week": "2020-W53",
+   "bounds": [
+    "2020-12-28",
+    "2021-01-03"
+   ]
+  },
+  {
+   "week": "2026-W00",
+   "error": "ValueError",
+   "message": "Invalid week: 0"
+  },
+  {
+   "week": "2026-W54",
+   "error": "ValueError",
+   "message": "Invalid week: 54"
+  },
+  {
+   "week": "2027-W01",
+   "bounds": [
+    "2027-01-04",
+    "2027-01-10"
+   ]
+  }
+ ]
+}

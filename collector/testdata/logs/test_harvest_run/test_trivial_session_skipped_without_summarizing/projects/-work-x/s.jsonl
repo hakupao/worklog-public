@@ -1,0 +1,1 @@
+{"type": "user", "sessionId": "abcdef1234567890", "cwd": "/work/x", "timestamp": "2026-09-18T00:00:00.000Z", "isSidechain": false, "message": {"role": "user", "content": "hi"}}

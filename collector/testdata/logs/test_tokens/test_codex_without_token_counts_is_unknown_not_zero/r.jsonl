@@ -1,0 +1,2 @@
+{"timestamp": "2026-09-18T08:55:00.000Z", "type": "session_meta", "payload": {"id": "11112222-3333-4444-5555-666677778888", "session_id": "11112222-3333-4444-5555-666677778888", "cwd": "/w", "source": "cli"}}
+{"timestamp": "2026-09-18T09:00:00.000Z", "type": "response_item", "payload": {"type": "message", "role": "user", "content": [{"type": "input_text", "text": "x"}]}}

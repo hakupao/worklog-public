@@ -1,0 +1,612 @@
+{
+ "note": "link.decide_core; 'posix' runs with link.Path = PurePosixPath (the Mac), 'windows' with PureWindowsPath (Win11). tasks: [id, project, status, received_at, done_at]; projects: [dir, name] in config order",
+ "tasks": {
+  "one_open": [
+   [
+    "T-A",
+    "ProjA",
+    "open",
+    "2026-09-01",
+    null
+   ]
+  ],
+  "two_open": [
+   [
+    "T-A",
+    "ProjA",
+    "open",
+    "2026-09-01",
+    null
+   ],
+   [
+    "T-B",
+    "ProjB",
+    "open",
+    "2026-09-10",
+    null
+   ]
+  ],
+  "hold_and_open": [
+   [
+    "T-H",
+    "ProjA",
+    "hold",
+    "2026-09-01",
+    null
+   ],
+   [
+    "T-A",
+    "ProjA",
+    "open",
+    "2026-09-01",
+    null
+   ]
+  ],
+  "done_window": [
+   [
+    "T-D",
+    "ProjA",
+    "done",
+    "2026-09-01",
+    "2026-09-17"
+   ]
+  ],
+  "received_later": [
+   [
+    "T-L",
+    "ProjA",
+    "open",
+    "2026-09-19",
+    null
+   ]
+  ],
+  "same_project_two": [
+   [
+    "T-A1",
+    "ProjA",
+    "open",
+    "2026-09-01",
+    null
+   ],
+   [
+    "T-A2",
+    "ProjA",
+    "done",
+    "2026-09-02",
+    "2026-09-30"
+   ]
+  ],
+  "tie": [
+   [
+    "T-TIE1",
+    "TieFirst",
+    "open",
+    "2026-09-01",
+    null
+   ],
+   [
+    "T-TIE2",
+    "TieSecond",
+    "open",
+    "2026-09-01",
+    null
+   ]
+  ],
+  "none": []
+ },
+ "projects": {
+  "posix": [
+   [
+    "/work/proj-a",
+    "ProjA"
+   ],
+   [
+    "/work/proj-b",
+    "ProjB"
+   ],
+   [
+    "/work/proj-a/deep",
+    "ProjB"
+   ]
+  ],
+  "tie": [
+   [
+    "/work/tie",
+    "TieFirst"
+   ],
+   [
+    "/work/tie/",
+    "TieSecond"
+   ],
+   [
+    "/work",
+    "Root"
+   ]
+  ],
+  "tie_reversed": [
+   [
+    "/work/tie/",
+    "TieSecond"
+   ],
+   [
+    "/work/tie",
+    "TieFirst"
+   ]
+  ],
+  "windows": [
+   [
+    "C:\\Work\\ProjA",
+    "ProjA"
+   ],
+   [
+    "c:/work/projb",
+    "ProjB"
+   ],
+   [
+    "\\\\server\\share\\proj",
+    "ProjA"
+   ]
+  ],
+  "windows_tie": [
+   [
+    "C:\\Work\\Tie",
+    "TieFirst"
+   ],
+   [
+    "c:\\work\\tie",
+    "TieSecond"
+   ]
+  ],
+  "none": []
+ },
+ "cases": [
+  {
+   "name": "auto_dir_unique",
+   "cwd": "/work/proj-a/sub",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "posix",
+   "posix": [
+    "T-A",
+    "auto-dir"
+   ],
+   "windows": [
+    "T-A",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "auto_dir_exact",
+   "cwd": "/work/proj-a",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "posix",
+   "posix": [
+    "T-A",
+    "auto-dir"
+   ],
+   "windows": [
+    "T-A",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "dir_known_no_task",
+   "cwd": "/work/proj-b",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "posix",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    null,
+    "none"
+   ]
+  },
+  {
+   "name": "dir_known_two_tasks",
+   "cwd": "/work/proj-a",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "same_project_two",
+   "projects": "posix",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    null,
+    "none"
+   ]
+  },
+  {
+   "name": "longest_dir_wins",
+   "cwd": "/work/proj-a/deep/x",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "two_open",
+   "projects": "posix",
+   "posix": [
+    "T-B",
+    "auto-dir"
+   ],
+   "windows": [
+    "T-B",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "auto_time_unique",
+   "cwd": "/elsewhere",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "posix",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "auto_time_two",
+   "cwd": "/elsewhere",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "two_open",
+   "projects": "posix",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    null,
+    "none"
+   ]
+  },
+  {
+   "name": "hold_ignored",
+   "cwd": "/elsewhere",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "hold_and_open",
+   "projects": "posix",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "done_plus_one_day",
+   "cwd": "/elsewhere",
+   "start": "2026-09-18T01:00:00Z",
+   "end": "2026-09-18T02:00:00Z",
+   "tasks": "done_window",
+   "projects": "posix",
+   "posix": [
+    "T-D",
+    "auto-time"
+   ],
+   "windows": [
+    "T-D",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "done_plus_two_days",
+   "cwd": "/elsewhere",
+   "start": "2026-09-19T01:00:00Z",
+   "end": "2026-09-19T02:00:00Z",
+   "tasks": "done_window",
+   "projects": "posix",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    null,
+    "none"
+   ]
+  },
+  {
+   "name": "jst_rolls_into_next_day",
+   "cwd": "/elsewhere",
+   "start": "2026-09-17T15:30:00Z",
+   "end": "2026-09-17T16:00:00Z",
+   "tasks": "done_window",
+   "projects": "posix",
+   "posix": [
+    "T-D",
+    "auto-time"
+   ],
+   "windows": [
+    "T-D",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "received_same_day",
+   "cwd": "/elsewhere",
+   "start": "2026-09-19T00:00:00+09:00",
+   "end": "2026-09-19T01:00:00+09:00",
+   "tasks": "received_later",
+   "projects": "posix",
+   "posix": [
+    "T-L",
+    "auto-time"
+   ],
+   "windows": [
+    "T-L",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "received_after_start",
+   "cwd": "/elsewhere",
+   "start": "2026-09-18T14:59:59Z",
+   "end": "2026-09-18T16:00:00Z",
+   "tasks": "received_later",
+   "projects": "posix",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    null,
+    "none"
+   ]
+  },
+  {
+   "name": "naive_dates_as_is",
+   "cwd": "/elsewhere",
+   "start": "2026-09-18T23:30:00",
+   "end": "2026-09-18T23:59:00",
+   "tasks": "done_window",
+   "projects": "posix",
+   "posix": [
+    "T-D",
+    "auto-time"
+   ],
+   "windows": [
+    "T-D",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "no_messages",
+   "cwd": "/work/proj-a",
+   "start": null,
+   "end": null,
+   "tasks": "one_open",
+   "projects": "posix",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    null,
+    "none"
+   ]
+  },
+  {
+   "name": "empty_cwd",
+   "cwd": "",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "posix",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "relative_cwd",
+   "cwd": "work/proj-a",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "posix",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "prefix_not_component",
+   "cwd": "/work/proj-abc",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "two_open",
+   "projects": "posix",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    null,
+    "none"
+   ]
+  },
+  {
+   "name": "tie_first_key_wins",
+   "cwd": "/work/tie/sub",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "tie",
+   "projects": "tie",
+   "posix": [
+    "T-TIE1",
+    "auto-dir"
+   ],
+   "windows": [
+    "T-TIE1",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "tie_reversed_order",
+   "cwd": "/work/tie/sub",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "tie",
+   "projects": "tie_reversed",
+   "posix": [
+    "T-TIE2",
+    "auto-dir"
+   ],
+   "windows": [
+    "T-TIE2",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "no_projects",
+   "cwd": "/work/proj-a",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "none",
+   "projects": "none",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    null,
+    "none"
+   ]
+  },
+  {
+   "name": "windows_case_insensitive",
+   "cwd": "c:\\work\\proja\\sub",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "windows",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "windows_mixed_separators",
+   "cwd": "C:/Work/ProjA/sub",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "windows",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "windows_forward_key",
+   "cwd": "C:\\Work\\ProjB\\x",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "two_open",
+   "projects": "windows",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    "T-B",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "windows_unc",
+   "cwd": "\\\\SERVER\\share\\proj\\x",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "windows",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "windows_tie",
+   "cwd": "C:\\Work\\Tie\\x",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "tie",
+   "projects": "windows_tie",
+   "posix": [
+    null,
+    "none"
+   ],
+   "windows": [
+    "T-TIE1",
+    "auto-dir"
+   ]
+  },
+  {
+   "name": "windows_prefix_not_component",
+   "cwd": "C:\\Work\\ProjAB",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "windows",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-time"
+   ]
+  },
+  {
+   "name": "posix_cwd_windows_keys",
+   "cwd": "/work/proj-a",
+   "start": "2026-09-18T09:00:00Z",
+   "end": "2026-09-18T10:00:00Z",
+   "tasks": "one_open",
+   "projects": "windows",
+   "posix": [
+    "T-A",
+    "auto-time"
+   ],
+   "windows": [
+    "T-A",
+    "auto-time"
+   ]
+  }
+ ]
+}

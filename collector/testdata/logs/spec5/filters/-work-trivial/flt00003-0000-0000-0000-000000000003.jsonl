@@ -1,0 +1,2 @@
+{"type": "user", "sessionId": "flt00003-0000-0000-0000-000000000003", "cwd": "/work/trivial", "isSidechain": false, "timestamp": "2026-09-18T09:00:00Z", "message": {"role": "user", "content": "一言"}}
+{"type": "assistant", "sessionId": "flt00003-0000-0000-0000-000000000003", "cwd": "/work/trivial", "isSidechain": false, "timestamp": "2026-09-18T09:02:59Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "x"}]}}

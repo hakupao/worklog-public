@@ -1,0 +1,4 @@
+{"type": "user", "sessionId": "time0004-0000-0000-0000-000000000004", "cwd": "/work/time", "isSidechain": false, "timestamp": "2026-09-18T18:00:00+09:00", "message": {"role": "user", "content": "同じ瞬間 (JST 表記が先)"}}
+{"type": "assistant", "sessionId": "time0004-0000-0000-0000-000000000004", "cwd": "/work/time", "isSidechain": false, "timestamp": "2026-09-18T09:00:00Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "UTC 表記"}]}}
+{"type": "user", "sessionId": "time0004-0000-0000-0000-000000000004", "cwd": "/work/time", "isSidechain": false, "timestamp": "2026-09-18T09:10:00Z", "message": {"role": "user", "content": "続き"}}
+{"type": "assistant", "sessionId": "time0004-0000-0000-0000-000000000004", "cwd": "/work/time", "isSidechain": false, "timestamp": "2026-09-18T18:10:00+09:00", "message": {"role": "assistant", "content": [{"type": "text", "text": "同じ瞬間 (JST 表記が後)"}]}}

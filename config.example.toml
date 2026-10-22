@@ -1,0 +1,127 @@
+machine = "macmini"          # 既定値。マシンごとに変える場合は ~/.worklog/local.toml に machine = "win11" のように書く（このファイルは編集しない）
+summarize_model = "haiku"
+api_url = "https://worklog.example.com"   # 必須（Worker の custom domain か workers.dev）。wl の書き込み先はこの API だけ
+# トークンはここに書かないこと。~/.worklog/credentials.toml に api_token = "..." を置く
+
+[requesters]                 # alias -> canonical
+"田中" = "田中さん（営業部）"
+
+[projects]                   # absolute dir -> project name
+"/Volumes/Data/Projects/LEDGER" = "LEDGER"
+
+[harvest]
+exclude_cwd_patterns = ["scratch-workspaces"]
+
+# API 等価費用の単価（$/MTok）。出典: claude-api skill（cached 2026-09-25）。
+# キーはモデル ID。ログのモデル名は日付サフィックスや "[1m]" を除いてから完全一致で引く（載っていない ID は未定価）。
+# cache_write_5m = 1.25×input、cache_write_1h = 2×input。
+# fast モード（usage.speed == "fast"）は "<model>:fast" で別建て。fast の単価が無いモデルは未定価扱い。
+# OpenAI / Codex: developers.openai.com/api/docs/pricing（Standard・短コンテキスト ≤272K、2026-10-01 確認）。
+# cache_read = cached input、cache_write_5m = cache writes。長コンテキスト（>272K、約 2 倍）と Fast モードは
+# リクエスト単位で判定できないため短コンテキスト単価で概算（下限寄り）。
+[pricing."gpt-6-astra"]
+input = 10.0
+output = 50.0
+cache_read = 1.00
+cache_write_5m = 12.5
+
+[pricing."gpt-6-sol"]
+input = 2.0
+output = 10.0
+cache_read = 0.20
+cache_write_5m = 2.5
+
+[pricing."gpt-6.1-sol"]
+input = 2.0
+output = 10.0
+cache_read = 0.10
+cache_write_5m = 2.5
+
+[pricing."gpt-5.6-sol"]
+input = 4.0
+output = 20.0
+cache_read = 0.40
+cache_write_5m = 5.0
+
+[pricing."claude-fable-5-1"]
+input = 10.0
+output = 50.0
+cache_read = 0.25
+cache_write_5m = 12.5
+cache_write_1h = 20.0
+
+[pricing."claude-fable-5"]
+input = 10.0
+output = 50.0
+cache_read = 1.00
+cache_write_5m = 12.5
+cache_write_1h = 20.0
+
+[pricing."claude-opus-5-5"]
+input = 4.0
+output = 20.0
+cache_read = 0.20
+cache_write_5m = 5.0
+cache_write_1h = 8.0
+
+# Opus 5.5 fast モード: $8 / $40（claude-api skill）。cache の fast 単価は未確認なので載せない
+# （fast の cache 用量がある session は費用が partial になる）。
+[pricing."claude-opus-5-5:fast"]
+input = 8.0
+output = 40.0
+
+[pricing."claude-opus-5"]
+input = 5.0
+output = 25.0
+cache_read = 0.50
+cache_write_5m = 6.25
+cache_write_1h = 10.0
+
+[pricing."claude-opus-4-8"]
+input = 5.0
+output = 25.0
+cache_read = 0.50
+cache_write_5m = 6.25
+cache_write_1h = 10.0
+
+[pricing."claude-opus-4-7"]
+input = 5.0
+output = 25.0
+cache_read = 0.50
+cache_write_5m = 6.25
+cache_write_1h = 10.0
+
+[pricing."claude-opus-4-6"]
+input = 5.0
+output = 25.0
+cache_read = 0.50
+cache_write_5m = 6.25
+cache_write_1h = 10.0
+
+[pricing."claude-sonnet-5-5"]
+input = 2.0
+output = 10.0
+cache_read = 0.20
+cache_write_5m = 2.5
+cache_write_1h = 4.0
+
+[pricing."claude-sonnet-5"]
+input = 2.0
+output = 10.0
+cache_read = 0.20
+cache_write_5m = 2.5
+cache_write_1h = 4.0
+
+[pricing."claude-sonnet-4-6"]
+input = 3.0
+output = 15.0
+cache_read = 0.30
+cache_write_5m = 3.75
+cache_write_1h = 6.0
+
+[pricing."claude-haiku-4-5"]
+input = 1.0
+output = 5.0
+cache_read = 0.10
+cache_write_5m = 1.25
+cache_write_1h = 2.0
