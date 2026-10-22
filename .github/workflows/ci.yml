@@ -79,9 +79,14 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: web/package-lock.json
+          cache-dependency-path: |
+            web/package-lock.json
+            server/package-lock.json
       - run: npm ci
+      # typecheck:demo 编译演示站，它把 server/src 打进浏览器，类型和依赖来自 server/node_modules。
+      - run: npm ci --prefix ../server
       - run: npm run typecheck
+      - run: npm run typecheck:demo
       - run: npm test
 
   go:

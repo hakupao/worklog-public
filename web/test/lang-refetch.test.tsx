@@ -49,4 +49,30 @@ describe("v2 language → X-Lang", () => {
     await api.machines();
     expect(calls[n].lang).toBeNull();
   });
+
+  // The first reads leave in the default zh before the prefs load. If one is still in flight when the prefs say
+  // en, invalidating alone would only re-join that zh request (a query with no data yet is never cancelled by a
+  // refetch), and its zh answer would stay on screen. Both shells set the language through useApiLang.
+  it.each([
+    { shell: "v2", hash: "#/v2/settings", held: "/api/machines" },
+    { shell: "phone", hash: "#/m/tasks", held: "/api/tasks" },
+  ])("$shell: a read still on its first load when the prefs' language arrives is fetched again in that language", async ({ hash, held: heldUrl }) => {
+    const calls: Call[] = [];
+    let release!: () => void;
+    const held = new Promise<void>((r) => { release = r; });
+    vi.stubGlobal("fetch", vi.fn(async (u: string, init?: RequestInit) => {
+      const url = String(u), lang = new Headers(init?.headers).get("X-Lang");
+      calls.push({ url, method: init?.method ?? "GET", lang });
+      if (url.startsWith("/api/prefs")) return json(init?.method === "PUT" ? JSON.parse(String(init.body)) : { ...DEFAULT_PREFS, lang: "en" });
+      if (url.startsWith("/api/me")) return json({ kind: "user", email: "me@example.com" });
+      if (url === heldUrl && lang !== "en") await held;
+      return json([]);
+    }));
+    window.location.hash = hash;
+    render(<App />);
+    await waitFor(() => expect(calls.some((c) => c.url === heldUrl && c.lang === "zh")).toBe(true));
+    await waitFor(() => expect(document.documentElement.lang).toBe("en"));
+    release();
+    await waitFor(() => expect(calls.some((c) => c.url === heldUrl && c.lang === "en")).toBe(true));
+  });
 });

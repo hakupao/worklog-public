@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useSyncExternalStore } from "react";
-import { useQueryClient } from "@tanstack/react-query";
-import { setApiLang } from "./api/client";
 import { useTasks } from "./api/queries";
+import { useApiLang } from "./api/useApiLang";
 import { ToastHost } from "./components/Toast";
 import { subscribeHash } from "./lib/hash";
 import { htmlLang } from "./i18n/t";
@@ -9,7 +8,7 @@ import type { StrKey } from "./i18n/strings";
 import { motion, setMotion } from "./led/motion";
 import { readOverrides, withoutOverride } from "./prefs/overrides";
 import type { Lang } from "./prefs/types";
-import { PREFS_KEY, usePrefs } from "./prefs/usePrefs";
+import { usePrefs } from "./prefs/usePrefs";
 import { NowPage } from "./pages/NowPage";
 import { PlanPage } from "./pages/PlanPage";
 import { ReportPage } from "./pages/ReportPage";
@@ -34,7 +33,6 @@ export default function V2App() {
   const { prefs, setPrefs, resetPrefs } = usePrefs();
   const lang: Lang = over.lang ?? prefs.lang;
   const world = over.world ?? prefs.world;
-  const qc = useQueryClient();
   useTasks();                                                    // feeds the badge registry (client.ts); B1
   // B2: a registry change re-renders the page (render-time lineColor() reads it); no remount, so no query refetches.
   // Memoised canvas draws take the version through useCanvas / EChart / RunChart deps.
@@ -56,13 +54,7 @@ export default function V2App() {
     };
   }, []);
   useLayoutEffect(() => { document.documentElement.lang = htmlLang(lang); }, [lang]);
-  // Data text comes back in the display language (X-Lang). Header first, then invalidate: every refetch
-  // goes out in the new language. Prefs are not localized and a refetch would race the PUT that carries
-  // the switch (and could revert it), so they stay out. Prefs load asynchronously: the first requests go
-  // out in the default zh, and the prefs' language, once it arrives, triggers one refresh.
-  const notPrefs = useCallback((q: { queryKey: readonly unknown[] }) => q.queryKey[0] !== PREFS_KEY[0], []);
-  useLayoutEffect(() => { setApiLang(lang); void qc.invalidateQueries({ predicate: notPrefs }); }, [lang, qc, notPrefs]);
-  useLayoutEffect(() => () => { setApiLang(null); void qc.invalidateQueries({ predicate: notPrefs }); }, [qc, notPrefs]);
+  useApiLang(lang);
   useLayoutEffect(() => { document.documentElement.dataset.font = prefs.omote.font; }, [prefs.omote.font]);
   useLayoutEffect(() => { setMotion(prefs); }, [prefs]);
   // Not while a toggle runs: Dock drops ?world= right before toggleWorld, which applies the new world

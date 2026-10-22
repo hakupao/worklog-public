@@ -1,0 +1,10 @@
+{
+  // The demo runtime (web/demo, not under web/src): DOM for the page, Workers types for the server code it imports.
+  // `npm run typecheck:demo`; the seed module is checked through build-db's bundle, not here.
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["vite/client", "node", "@cloudflare/workers-types"],
+    "typeRoots": ["../node_modules/@types", "../../server/node_modules"]
+  },
+  "include": ["*.ts", "stubs", "seed"]
+}

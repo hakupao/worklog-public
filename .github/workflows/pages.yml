@@ -1,0 +1,63 @@
+name: Pages
+
+# 演示站：在浏览器里跑真实的 Worker 代码（server/src，D1 换成 sql.js），数据是 web/demo/seed 生成的虚构数据。
+# 只在公开镜像上运行（私有仓库不发布 Pages）。README 的截图在这里现拍，跟站点一起发布，不进 git。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# 与 GitHub 官方 Pages 模板一致：不中途取消正在进行的部署。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.repository == 'hakupao/worklog-public'
+    runs-on: ubuntu-latest
+    env:
+      DEMO_BASE: /worklog-public/
+      # ubuntu runner 自带 Google Chrome；脚本用 playwright-core 驱动它，不另下载浏览器。
+      CHROME: /usr/bin/google-chrome
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          # demo-smoke.mjs 直接 import TypeScript（Node ≥ 22.18 的类型剥离）
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            web/package-lock.json
+            server/package-lock.json
+      # 演示包里打进了 server 的代码，所以两边的依赖都要装。
+      - run: npm ci --prefix server
+      - run: npm ci --prefix web
+      # 截图里系统回退字体也要有 CJK（界面字体本身是打包的点阵字和 Google Fonts）。
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
+      - run: npm run build:demo
+        working-directory: web
+      - run: npm run smoke:demo
+        working-directory: web
+      - run: node scripts/demo-shots.mjs
+        working-directory: web
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: web/dist-demo
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # 部署权限只给这一步；build 里跑 npm ci 和第三方脚本，不拿 Pages 的 OIDC 令牌。
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

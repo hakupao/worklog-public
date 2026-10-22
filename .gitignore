@@ -12,6 +12,10 @@ server/public/*
 docs/projects/web-service/evidence/sdd_3/review-*.diff
 web/.replay/
 
+# Demo site build (npm --prefix web run build:demo): output and the generated database
+web/dist-demo/
+web/demo/demo.sqlite
+
 # Screenshots from development stay local; evidence keeps text records only
 docs/**/*.png
 docs/**/*.jpg

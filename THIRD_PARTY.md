@@ -16,6 +16,7 @@
 | Fusion Pixel Font（8 / 10 / 12 px，简中 / 日文） | 未记录 | SIL OFL 1.1 | 里世界的全部点阵字（LED 字形取样） | https://github.com/TakWolf/fusion-pixel-font ，许可证在 `web/src/led/fonts/LICENSE-OFL.txt` |
 | Phosphor Icons | 2.1.1 | MIT | 案件徽章的物件剪影（生成进 `objects.gen.ts`） | https://github.com/phosphor-icons/core ，声明在 `web/src/badge/NOTICE.md` |
 | Microsoft Fluent Emoji（High Contrast，经 Iconify 打包） | 1.2.6 | MIT | 同上，案件徽章 | https://github.com/microsoft/fluentui-emoji ，声明同上 |
+| sql.js | 1.14.2 | MIT | 仅演示站（`npm run build:demo`）：浏览器里代替 D1 的 SQLite（WebAssembly），生产包不含 | https://github.com/sql-js/sql.js |
 
 ### 服务端（`server/`，Cloudflare Worker）
 
@@ -53,7 +54,7 @@
 | jsdom | 30.1.0 | MIT | 测试里的 DOM |
 | Playwright（playwright-core） | 1.63.0 | Apache-2.0 | 截图与界面验收脚本（用系统 Chrome） |
 | svgpath / svg-path-bbox | 2.6.0 / 2.1.0 | MIT / BSD-3-Clause | 生成案件徽章剪影的脚本 |
-| @types/node、@types/react、@types/react-dom | — | MIT | 类型定义（DefinitelyTyped） |
+| @types/node、@types/react、@types/react-dom、@types/sql.js | — | MIT | 类型定义（DefinitelyTyped） |
 | GitHub Actions：checkout、setup-node、setup-go、dorny/paths-filter | v7 / v7 / v7 / v3 | MIT | CI |
 
 ## 4. 运行时从外部加载的字体（不随包分发）

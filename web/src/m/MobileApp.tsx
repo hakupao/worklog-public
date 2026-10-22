@@ -1,12 +1,11 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { useCallback, useLayoutEffect, useMemo, useSyncExternalStore, type ComponentType } from "react";
-import { setApiLang } from "../api/client";
 import { useTasks } from "../api/queries";
+import { useApiLang } from "../api/useApiLang";
 import { ToastHost } from "../components/Toast";
 import { subscribeHash } from "../lib/hash";
 import { htmlLang } from "../i18n/t";
 import type { Lang } from "../prefs/types";
-import { PREFS_KEY, usePrefs } from "../prefs/usePrefs";
+import { usePrefs } from "../prefs/usePrefs";
 import { V2Context, type V2Ctx } from "../ui/context";
 import { BadgeWorld } from "../ui/TaskBadge";
 import { ensureMobileFonts } from "./fonts";
@@ -30,7 +29,6 @@ export default function MobileApp() {
   const route: MRoute = PAGES[parsed.page] ? parsed : { ...parsed, page: "now", param: null };
   const { prefs, setPrefs, resetPrefs } = usePrefs();
   const lang = prefs.lang;
-  const qc = useQueryClient();
   const theme = useMobileTheme();   // exactly one instance: the shell owns it, TopBar only toggles it
   useTasks();   // feeds the badge registry so any page — #/m/plan opened directly — shows stored badges (as V2App)
 
@@ -42,10 +40,7 @@ export default function MobileApp() {
   }, []);
   useLayoutEffect(() => { document.documentElement.dataset.mTheme = theme.resolved; }, [theme.resolved]);
   useLayoutEffect(() => { document.documentElement.lang = htmlLang(lang); }, [lang]);
-  // Data comes back in the display language (X-Lang), as in V2App: header first, then refetch everything but prefs.
-  const notPrefs = useCallback((q: { queryKey: readonly unknown[] }) => q.queryKey[0] !== PREFS_KEY[0], []);
-  useLayoutEffect(() => { setApiLang(lang); void qc.invalidateQueries({ predicate: notPrefs }); }, [lang, qc, notPrefs]);
-  useLayoutEffect(() => () => { setApiLang(null); void qc.invalidateQueries({ predicate: notPrefs }); }, [qc, notPrefs]);
+  useApiLang(lang);
   const setLang = useCallback((l: Lang) => setPrefs((p) => ({ ...p, lang: l })), [setPrefs]);
   const ctx = useMemo<V2Ctx>(() => ({ prefs, lang, setPrefs, resetPrefs, setLang }), [prefs, lang, setPrefs, resetPrefs, setLang]);
   const Page = PAGES[route.page] ?? Now;

@@ -1,13 +1,91 @@
+<div align="center">
+
+<a href="https://hakupao.github.io/worklog-public/"><img src="https://hakupao.github.io/worklog-public/shots/now-ura.jpg" alt="worklog: the Now page in the dark LED look, two sessions running" width="100%"></a>
+
 # worklog
 
-English | [简体中文](README.zh-CN.md)
+**A work log that writes itself.**<br>
+Claude Code and Codex sessions are collected in the background, matched to the tasks you are working on,
+and turned into a weekly report in Japanese, Chinese and English.
+
+<a href="https://hakupao.github.io/worklog-public/"><img src="https://img.shields.io/badge/%E2%96%B6%20Live%20demo-open%20in%20your%20browser-E8A33D?style=for-the-badge" alt="Live demo"></a>
 
 [![CI](https://github.com/hakupao/worklog-public/actions/workflows/ci.yml/badge.svg)](https://github.com/hakupao/worklog-public/actions/workflows/ci.yml)
+[![Pages](https://github.com/hakupao/worklog-public/actions/workflows/pages.yml/badge.svg)](https://github.com/hakupao/worklog-public/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Go](https://img.shields.io/badge/Go-collector-00ADD8?logo=go&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-Worker%20%2B%20UI-3178C6?logo=typescript&logoColor=white)
+![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers%20%2B%20D1-F38020?logo=cloudflare&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 
-A personal work log that writes itself from your AI coding sessions. A small Go CLI (`wl`) collects Claude Code and
-Codex session logs in the background; a Cloudflare Worker keeps everything in D1 and serves a web UI where sessions
-are linked to tasks and the weekly report is produced as xlsx or PDF.
+English · [简体中文](README.zh-CN.md) · [Usage guide](docs/guide/usage.md) · [API](docs/guide/api.md)
+
+</div>
+
+> [!TIP]
+> **The demo is the real app.** The Worker's own code runs inside your browser on an in-memory SQLite database
+> filled with eight weeks of made-up work: 434 sessions on two machines, 15 tasks, plans, weekly digests and
+> reviews in three languages. The clock starts at Thursday 15 October 2026, 15:20 JST and keeps ticking. Click
+> anything: edits stay in the tab and reset on reload.
+
+## Two looks, one board
+
+<table>
+<tr>
+<th width="50%">裏 · Back: LED dot matrix</th>
+<th width="50%">表 · Front: print</th>
+</tr>
+<tr>
+<td><a href="https://hakupao.github.io/worklog-public/?world=ura#/v2/now"><img src="https://hakupao.github.io/worklog-public/shots/now-ura.jpg" alt="Now page, Back look"></a></td>
+<td><a href="https://hakupao.github.io/worklog-public/?world=omote#/v2/now"><img src="https://hakupao.github.io/worklog-public/shots/now-omote.jpg" alt="Now page, Front look"></a></td>
+</tr>
+</table>
+
+Every page comes in both looks; switch with **Front · Back** in the dock. The Now page shows what is running,
+what to do next (unlinked sessions, today's plan, the report not yet downloaded), today's run chart and an
+ephemeris of weekends, paydays and holidays, under a dot-matrix scene that changes with the time of day.
+
+## A tour
+
+<table>
+<tr>
+<td width="50%"><a href="https://hakupao.github.io/worklog-public/#/v2/timeline"><img src="https://hakupao.github.io/worklog-public/shots/timeline.jpg" alt="Timeline"></a></td>
+<td width="50%"><a href="https://hakupao.github.io/worklog-public/#/v2/plan"><img src="https://hakupao.github.io/worklog-public/shots/plan.jpg" alt="Plan"></a></td>
+</tr>
+<tr>
+<td><b>Timeline</b>: every session of the week on one board, one coloured line per task. Link an unlinked
+session to a task right there.</td>
+<td><b>Plan</b>: daily, weekly, near and far lists, and today's plan, which a model checks against the day's
+sessions (done / partly / not done).</td>
+</tr>
+<tr>
+<td><a href="https://hakupao.github.io/worklog-public/?world=omote#/v2/tasks"><img src="https://hakupao.github.io/worklog-public/shots/tasks.jpg" alt="Tasks"></a></td>
+<td><a href="https://hakupao.github.io/worklog-public/?world=omote&lang=ja#/v2/report"><img src="https://hakupao.github.io/worklog-public/shots/report.jpg" alt="Weekly report"></a></td>
+</tr>
+<tr>
+<td><b>Tasks</b> (案件): requester, status, hours per day and week, and which ones have a session running now.</td>
+<td><b>週報</b>, the weekly report: digests per task and per day, editable cells, a one-page A4 PDF and a
+cross-week xlsx, each in three languages.</td>
+</tr>
+</table>
+
+<a href="https://hakupao.github.io/worklog-public/#/v2/stats"><img src="https://hakupao.github.io/worklog-public/shots/stats.jpg" alt="Stats" width="100%"></a>
+
+**Stats**: 24 views you can switch on, off and reorder: headline numbers, a day waterfall, parallel sessions,
+rhythm, requesters, token use and API-equivalent cost, and a weekly AI review.
+
+<table>
+<tr>
+<td width="34%"><a href="https://hakupao.github.io/worklog-public/?lang=ja#/m/now"><img src="https://hakupao.github.io/worklog-public/shots/mobile-now.jpg" alt="Phone: Now"></a></td>
+<td width="34%"><a href="https://hakupao.github.io/worklog-public/?world=omote#/m/tl"><img src="https://hakupao.github.io/worklog-public/shots/mobile-tl.jpg" alt="Phone: Timeline"></a></td>
+<td>
+<b>On your phone</b><br><br>
+Narrow screens get their own shell: now, timeline, tasks, plan and stats, built for a glance between meetings.
+<br><br>
+Every screen also comes in 中文 and 日本語, including the data: titles, digests and notes are translated.
+</td>
+</tr>
+</table>
 
 > **Built for one person's workflow.** It was written for a dispatched engineer in Japan who logs work per request
 > and hands in a weekly report (週報) in Japanese. The data model, the report layout and many UI terms follow that
@@ -37,20 +115,21 @@ are linked to tasks and the weekly report is produced as xlsx or PDF.
 
 ## Architecture
 
-```
-  each machine                                  Cloudflare
-  ------------                                  ----------
-  scheduler (launchd / Task Scheduler)
-    -> wl harvest                               +--------------------------------+
-         reads ~/.claude, ~/.codex logs         | Worker  (server/)              |
-         summarizes with `claude -p`  -- HTTPS->|   Hono API   /api/*            |
-  wl new / note / done / hold / ls              |   D1         the only datastore|
-    (from a terminal or the /wl skill)          |   cron       translation sweep |
-                                                |   Browser Run  週報 PDF        |
-                                                |   static assets = web/ build   |
-                                                +---------------^----------------+
-                                                                | Cloudflare Access
-                                                             browser (desktop / phone)
+```mermaid
+flowchart LR
+  subgraph M["each machine"]
+    S["launchd / Task Scheduler"] --> H["wl harvest<br/>reads ~/.claude, ~/.codex<br/>summarizes with claude -p"]
+    C["wl new · note · done · hold · ls<br/>(terminal or the /wl skill)"]
+  end
+  subgraph CF["Cloudflare"]
+    W["Worker (server/)<br/>Hono API /api/*"] --- D[("D1<br/>the only datastore")]
+    W --- R["cron: translation sweep"]
+    W --- B["Browser Run: 週報 PDF"]
+    W --- A["static assets: web/ build"]
+  end
+  H -- HTTPS --> W
+  C -- HTTPS --> W
+  U["browser<br/>desktop / phone"] -- Cloudflare Access --> W
 ```
 
 - D1 is the single source of truth; nothing is kept locally except the collector's bookmarks and an outbox of
@@ -65,6 +144,7 @@ are linked to tasks and the weekly report is produced as xlsx or PDF.
 | `collector/` | The `wl` CLI in Go: log parsers, summarizer, harvest, API client. `make -C collector build` puts the binary in `bin/`. |
 | `server/` | The Cloudflare Worker: Hono API, D1 migrations, report builders (ExcelJS xlsx, PDF via Browser Run), cron jobs. |
 | `web/` | The web UI: React, Vite, TanStack Query, ECharts. Built into `server/public/`. |
+| `web/demo/` | The demo site: runs `server/src` in the browser on a sql.js stand-in for D1, with a generated fictional dataset (`demo/seed/`). Published to GitHub Pages by `.github/workflows/pages.yml`. |
 | `scripts/` | Scheduler setup (launchd plist, Task Scheduler script), `/wl` skill installers, release and update scripts, the local digest writer. |
 | `skills/wl/` | Template of the Claude Code `/wl` skill (rendered by `scripts/install-skill.*`). |
 | `docs/` | `guide/` (usage and API) and `design/` (design documents). |
@@ -254,6 +334,15 @@ Screens up to 700 px wide are sent to the phone UI unless you switch back to the
 Four test suites run in CI: the Go collector, the Worker (vitest on a local workerd), the web UI (vitest, re-run
 under several time zones) and the Node scripts. [`CONTRIBUTING.md`](CONTRIBUTING.md) covers local development
 (`wrangler dev`, the Vite proxy, seed data), the tests and the commit style.
+
+The demo site builds and runs locally without any Cloudflare account:
+
+```bash
+cd web
+npm run build:demo    # seeds demo.sqlite, then builds dist-demo/
+npm run preview:demo  # http://localhost:4174/worklog-public/
+npm run smoke:demo    # every page and every GET route against the built site
+```
 
 ## Documentation
 

@@ -1,12 +1,87 @@
+<div align="center">
+
+<a href="https://hakupao.github.io/worklog-public/?lang=zh"><img src="https://hakupao.github.io/worklog-public/shots/now-ura.jpg" alt="worklog：里世界的点阵「此刻」页，两个会话正在运行" width="100%"></a>
+
 # worklog
 
-[English](README.md) | 简体中文
+**自己会写的工作记录。**<br>
+后台收集 Claude Code 和 Codex 的会话，自动挂到你正在做的案件上，
+再整理成日文、中文、英文三种语言的週報。
+
+<a href="https://hakupao.github.io/worklog-public/?lang=zh"><img src="https://img.shields.io/badge/%E2%96%B6%20%E5%9C%A8%E7%BA%BF%E6%BC%94%E7%A4%BA-%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E9%87%8C%E6%89%93%E5%BC%80-E8A33D?style=for-the-badge" alt="在线演示"></a>
 
 [![CI](https://github.com/hakupao/worklog-public/actions/workflows/ci.yml/badge.svg)](https://github.com/hakupao/worklog-public/actions/workflows/ci.yml)
+[![Pages](https://github.com/hakupao/worklog-public/actions/workflows/pages.yml/badge.svg)](https://github.com/hakupao/worklog-public/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Go](https://img.shields.io/badge/Go-collector-00ADD8?logo=go&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-Worker%20%2B%20UI-3178C6?logo=typescript&logoColor=white)
+![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers%20%2B%20D1-F38020?logo=cloudflare&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 
-一个由 AI 编码会话自动写成的个人工作记录。小巧的 Go 命令行工具 `wl` 在后台收集 Claude Code 和 Codex 的会话日志；
-Cloudflare Worker 把所有数据存在 D1 里，并提供网页界面：在网页上把会话挂到案件上，生成 xlsx 或 PDF 的週報。
+[English](README.md) · 简体中文 · [使用说明](docs/guide/usage.md) · [API](docs/guide/api.md)
+
+</div>
+
+> [!TIP]
+> **演示站跑的就是真实的程序。** Worker 的代码直接在你的浏览器里运行，数据库是内存里的 SQLite，
+> 装着八周虚构的工作：两台机器上的 434 个会话、15 个案件、计划、週報总结和周复盘，三种语言齐全。
+> 时钟从 2026 年 10 月 15 日（周四）15:20 JST 开始走。随便点：改动只留在当前标签页，刷新就恢复原样。
+
+## 两种外观，同一块看板
+
+<table>
+<tr>
+<th width="50%">裏：LED 点阵</th>
+<th width="50%">表：印刷</th>
+</tr>
+<tr>
+<td><a href="https://hakupao.github.io/worklog-public/?world=ura&lang=zh#/v2/now"><img src="https://hakupao.github.io/worklog-public/shots/now-ura.jpg" alt="此刻页·里"></a></td>
+<td><a href="https://hakupao.github.io/worklog-public/?world=omote&lang=zh#/v2/now"><img src="https://hakupao.github.io/worklog-public/shots/now-omote.jpg" alt="此刻页·表"></a></td>
+</tr>
+</table>
+
+每一页都有两种外观，用底栏的「表 · 里」切换。「此刻」页显示正在运行的会话、接下来该做什么
+（未关联的会话、今日安排、本周週報还没下载），今天的运行图，以及周末、发薪日、节假日的日程表；
+上方的点阵场景图随一天中的时段变换。
+
+## 一览
+
+<table>
+<tr>
+<td width="50%"><a href="https://hakupao.github.io/worklog-public/?lang=zh#/v2/timeline"><img src="https://hakupao.github.io/worklog-public/shots/timeline.jpg" alt="时间线"></a></td>
+<td width="50%"><a href="https://hakupao.github.io/worklog-public/?lang=zh#/v2/plan"><img src="https://hakupao.github.io/worklog-public/shots/plan.jpg" alt="计划"></a></td>
+</tr>
+<tr>
+<td><b>时间线</b>：一周的所有会话在一块看板上，每个案件一条彩色线路。未关联的会话可以直接在这里挂到案件上。</td>
+<td><b>计划</b>：每日、本周、近期、远期四档清单，加上今日安排。模型对照当天的会话判定完成、部分、未做。</td>
+</tr>
+<tr>
+<td><a href="https://hakupao.github.io/worklog-public/?world=omote&lang=zh#/v2/tasks"><img src="https://hakupao.github.io/worklog-public/shots/tasks.jpg" alt="案件"></a></td>
+<td><a href="https://hakupao.github.io/worklog-public/?world=omote&lang=ja#/v2/report"><img src="https://hakupao.github.io/worklog-public/shots/report.jpg" alt="週報"></a></td>
+</tr>
+<tr>
+<td><b>案件</b>：依頼元、状态、按天和按周的工时，以及哪些案件此刻有会话在跑。</td>
+<td><b>週報</b>：按案件、按天的总结，可直接修改的单元格，一页 A4 的 PDF 和跨周 xlsx，都有三种语言。</td>
+</tr>
+</table>
+
+<a href="https://hakupao.github.io/worklog-public/?lang=zh#/v2/stats"><img src="https://hakupao.github.io/worklog-public/shots/stats.jpg" alt="统计" width="100%"></a>
+
+**统计**：24 个视图，可以开关、排序：核心数字、每日瀑布图、并行会话、作息节奏、依頼元、token 用量和等价费用，
+以及每周的 AI 复盘。
+
+<table>
+<tr>
+<td width="34%"><a href="https://hakupao.github.io/worklog-public/?lang=ja#/m/now"><img src="https://hakupao.github.io/worklog-public/shots/mobile-now.jpg" alt="手机：此刻"></a></td>
+<td width="34%"><a href="https://hakupao.github.io/worklog-public/?world=omote&lang=zh#/m/tl"><img src="https://hakupao.github.io/worklog-public/shots/mobile-tl.jpg" alt="手机：时间线"></a></td>
+<td>
+<b>手机上</b><br><br>
+窄屏有专门的界面：此刻、时间线、案件、计划、统计，开会间隙扫一眼就够。
+<br><br>
+每个画面都有中文、日本語、English，数据本身也会翻译：案件名、总结、备注都跟着语言走。
+</td>
+</tr>
+</table>
 
 > **为一个人的工作方式而写。** 它最初是给一位在日本做派遣的工程师用的：按委托记录工作，每周交一份日文週報。
 > 数据模型、週報版式和不少界面用语都沿用这套做法，所以有些词保留日文：
@@ -31,20 +106,21 @@ Cloudflare Worker 把所有数据存在 D1 里，并提供网页界面：在网�
 
 ## 架构
 
-```
-  每台机器                                      Cloudflare
-  --------                                      ----------
-  定时任务（launchd / 任务计划程序）
-    -> wl harvest                               +--------------------------------+
-         读 ~/.claude、~/.codex 的日志          | Worker（server/）              |
-         用 `claude -p` 写摘要        -- HTTPS->|   Hono API   /api/*            |
-  wl new / note / done / hold / ls              |   D1         唯一的数据源      |
-    （在终端里，或通过 /wl 技能）               |   cron       翻译队列          |
-                                                |   Browser Run  週報 PDF        |
-                                                |   静态资源 = web/ 的构建产物   |
-                                                +---------------^----------------+
-                                                                | Cloudflare Access
-                                                             浏览器（桌面 / 手机）
+```mermaid
+flowchart LR
+  subgraph M["每台机器"]
+    S["launchd / 任务计划程序"] --> H["wl harvest<br/>读 ~/.claude、~/.codex 的日志<br/>用 claude -p 写摘要"]
+    C["wl new · note · done · hold · ls<br/>（终端或 /wl 技能）"]
+  end
+  subgraph CF["Cloudflare"]
+    W["Worker（server/）<br/>Hono API /api/*"] --- D[("D1<br/>唯一的数据源")]
+    W --- R["cron：翻译队列"]
+    W --- B["Browser Run：週報 PDF"]
+    W --- A["静态资源：web/ 的构建产物"]
+  end
+  H -- HTTPS --> W
+  C -- HTTPS --> W
+  U["浏览器<br/>桌面 / 手机"] -- Cloudflare Access --> W
 ```
 
 - D1 是唯一的数据源；本地只留采集器的书签和没发出去的写入（outbox）。
@@ -57,6 +133,7 @@ Cloudflare Worker 把所有数据存在 D1 里，并提供网页界面：在网�
 | `collector/` | Go 写的 `wl`：日志解析、摘要、harvest、API 客户端。`make -C collector build` 把二进制放到 `bin/`。 |
 | `server/` | Cloudflare Worker：Hono API、D1 迁移、週報生成（ExcelJS 出 xlsx，Browser Run 出 PDF）、cron 任务。 |
 | `web/` | 网页界面：React、Vite、TanStack Query、ECharts。构建到 `server/public/`。 |
+| `web/demo/` | 演示站：把 `server/src` 放在浏览器里运行，D1 换成 sql.js，数据由 `demo/seed/` 生成（全部虚构）。由 `.github/workflows/pages.yml` 发布到 GitHub Pages。 |
 | `scripts/` | 定时任务的配置（launchd plist、任务计划程序脚本）、`/wl` 技能安装脚本、发版与更新脚本、本机写周报总结的脚本。 |
 | `skills/wl/` | Claude Code `/wl` 技能的模板（由 `scripts/install-skill.*` 渲染）。 |
 | `docs/` | `guide/`（使用说明与 API）和 `design/`（设计书）。 |
@@ -235,6 +312,15 @@ bin/wl harvest
 
 CI 跑四套测试：Go 采集器、Worker（在本地 workerd 上跑 vitest）、网页（vitest，并在多个时区下复跑）和 Node 脚本。
 本地开发（`wrangler dev`、Vite 代理、种数据）、测试和提交规范见 [`CONTRIBUTING.md`](CONTRIBUTING.md)（英文）。
+
+演示站不需要 Cloudflare 账号，本地就能构建和运行：
+
+```bash
+cd web
+npm run build:demo    # 先生成 demo.sqlite，再构建 dist-demo/
+npm run preview:demo  # http://localhost:4174/worklog-public/
+npm run smoke:demo    # 对构建好的站点逐页打开、逐个 GET 路由检查
+```
 
 ## 文档
 

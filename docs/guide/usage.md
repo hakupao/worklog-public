@@ -290,7 +290,7 @@ Mac 上 launchd 每小时的 0、15、30、45 分各跑一次 `bin/wl harvest --
 
 以 Win11 为例（Mac 把路径换成 `~/`，定时任务用 launchd）。
 
-1. `git clone git@github.com:hakupao/worklog.git`，进目录放好 `wl`：
+1. `git clone git@github.com:hakupao/worklog-public.git`，进目录放好 `wl`：
    - Win11：装好 `gh` 并登录（`gh auth status` 能通过），在仓库根目录跑 `powershell -ExecutionPolicy Bypass -File scripts\update-wl.ps1 -Tag <wl-vX.Y.Z> -Dest bin`（`-Tag` 填最新的 `wl-v…` Release）。它下载 Release、核对 SHA-256 后放到 `bin\wl.exe`；以后升级也跑这一条。
    - Mac：装 Go（版本见 `collector/go.mod`），跑 `make -C collector build`，产出 `bin/wl`。
 2. 装 Claude Code 并登录（`claude -p "hi"` 能返回）。harvest 用它做摘要，没有也能跑但摘要全是 fallback。
