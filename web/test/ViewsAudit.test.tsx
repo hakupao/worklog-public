@@ -150,6 +150,9 @@ it("every view is classified: a new view must say how it takes part in the linke
   expect(new Set(classified).size).toBe(STATS_VIEWS.length);
 });
 
+// Each of these renders all 24 views; on a loaded machine or a 2-core CI runner one takes over the 20 s default.
+const HEAVY = 60_000;
+
 // The linked hover audit, split so each test stays a few seconds (F6): follows, then writes from the canvases, then
 // writes from the charts and rows. Each renders the page in the world with every view shown.
 describe.each(["ura", "omote"] as const)("linked hover across every view (%s)", (world) => {
@@ -188,7 +191,7 @@ describe.each(["ura", "omote"] as const)("linked hover across every view (%s)", 
       act(() => setHoverTask(k));
       expect([id, sec(c, id)!.querySelector(`[data-task="${k}"]`)!.classList.contains("hl")]).toEqual([id, true]);
     }
-  });
+  }, HEAVY);
 
   it("hovering a task on each canvas view writes the page's hover task; leaving clears it", async () => {
     const { c } = await loaded();
@@ -198,7 +201,7 @@ describe.each(["ura", "omote"] as const)("linked hover across every view (%s)", 
       fireEvent.pointerLeave(el);
       expect([id, getHoverTask()]).toEqual([id, null]);
     }
-  });
+  }, HEAVY);
 
   it("hovering a task in each chart and on each task row writes the page's hover task", async () => {
     const { c } = await loaded();
@@ -218,7 +221,7 @@ describe.each(["ura", "omote"] as const)("linked hover across every view (%s)", 
       expect([id, getHoverTask()]).toEqual([id, el.dataset.task]);
       act(() => setHoverTask(null));
     }
-  });
+  }, HEAVY);
 });
 
 describe("表 with amounts hidden (default hide): no amount anywhere", () => {
