@@ -1,6 +1,6 @@
 import { DEFAULT_PREFS } from "./defaults";
 import {
-  FONT_OPTIONS, HM_RE, INK_FX_OPTIONS, LANGS, LED_FX_OPTIONS, MMDD_RE, MODE_IDS, RULE_IDS, SPEED_OPTIONS, WORLD_FX_OPTIONS,
+  DOCK_OPTIONS, FONT_OPTIONS, HM_RE, INK_FX_OPTIONS, LANGS, LED_FX_OPTIONS, MMDD_RE, MODE_IDS, RULE_IDS, SPEED_OPTIONS, WORLD_FX_OPTIONS,
   type Break, type ModeCfg, type PredictPrefs, type Prefs, type RuleCfg, type RuleParams, type Trigger,
 } from "./types";
 
@@ -90,6 +90,7 @@ export function normalizePrefs(x: unknown): Prefs {
     fx: Object.fromEntries(TRIGGERS.map((k) => [k, pick(fx[k], LED_FX_OPTIONS[k], D.fx[k])])) as Prefs["fx"],
     ofx: Object.fromEntries(TRIGGERS.map((k) => [k, pick(ofx[k], INK_FX_OPTIONS[k], D.ofx[k])])) as Prefs["ofx"],
     worldFx: pick(o.worldFx, WORLD_FX_OPTIONS, D.worldFx),
+    dock: pick(o.dock, DOCK_OPTIONS, D.dock),
     speed: pick(o.speed, SPEED_OPTIONS, D.speed),
     omote: {
       font: pick(om.font, FONT_OPTIONS, D.omote.font),

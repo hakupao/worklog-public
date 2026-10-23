@@ -6,6 +6,8 @@ export type Trigger = "load" | "lang" | "data";
 export type LedFx = "flicker" | "morph" | "scan" | "decode" | "flap" | "ripple" | "roll" | "none";
 export type InkFx = "rise" | "type" | "scan" | "fade" | "ripple" | "slide" | "roll" | "bleed" | "none";
 export type WorldFx = "scan" | "ink" | "flip" | "print";
+/** The desktop dock: "auto" sinks below the bottom edge until reached, "pin" always stays up. */
+export type DockMode = "auto" | "pin";
 export type Speed = 0.25 | 0.5 | 1 | 1.5;
 export type FontChoice = "plex" | "inter" | "geist";
 export type ModeId = "morning" | "focus" | "weekly" | "wrap";
@@ -31,6 +33,7 @@ export interface Prefs {
   fx: Record<Trigger, LedFx>;
   ofx: Record<Trigger, InkFx>;
   worldFx: WorldFx;
+  dock: DockMode;
   speed: Speed;
   omote: { font: FontChoice; hide: string[] };
   predict: PredictPrefs;
@@ -56,6 +59,7 @@ export const INK_FX_OPTIONS: Record<Trigger, InkFx[]> = {
   data: ["roll", "slide", "fade", "type", "bleed", "ripple", "none"],
 };
 export const WORLD_FX_OPTIONS: WorldFx[] = ["scan", "ink", "flip", "print"];
+export const DOCK_OPTIONS: DockMode[] = ["auto", "pin"];
 export const SPEED_OPTIONS: Speed[] = [0.25, 0.5, 1, 1.5];
 export const FONT_OPTIONS: FontChoice[] = ["plex", "inter", "geist"];
 export const MODE_IDS: ModeId[] = ["morning", "focus", "weekly", "wrap"];

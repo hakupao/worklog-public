@@ -50,6 +50,13 @@ describe("SettingsPage", () => {
     expect([s.get().speed, s.get().worldFx, s.get().omote.font]).toEqual([0.5, "flip", "geist"]);
   });
 
+  it("bottom menu: auto-hide by default, 常驻 writes dock: pin", () => {
+    const s = renderPage();
+    expect(within(item("显示方式")).getByRole("button", { name: "自动隐藏" }).getAttribute("aria-pressed")).toBe("true");
+    fireEvent.click(within(item("显示方式")).getByRole("button", { name: "常驻" }));
+    expect(s.get().dock).toBe("pin");
+  });
+
   it("module checkboxes: checked = shown; unchecking adds the id to hide", () => {
     const s = renderPage();
     const box = within(item("表世界显示的模块"));

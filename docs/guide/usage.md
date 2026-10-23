@@ -310,8 +310,6 @@ Mac 上 launchd 每小时的 0、15、30、45 分各跑一次 `bin/wl harvest --
 6. 注册定时任务：Win11 在 PowerShell 里跑 `.\scripts\schtasks-harvest.ps1`（每小时 0 分一次全量的 `bin\wl.exe harvest`、无窗口，任务名 `WorklogHarvest`，输出追加到 `%USERPROFILE%\.worklog\harvest.log`；没有 `bin\wl.exe` 时报错、不注册；挪了仓库要重跑；旧的会弹窗的任务先 `Unregister-ScheduledTask` 掉）；Mac 先把 `scripts/com.worklog.harvest.plist` 里的占位路径改成本机的（`ProgramArguments` 里 `bin/wl` 的路径、能找到 `claude` 的 `PATH`（按 `which claude`）、`WORKLOG_ROOT`、`WorkingDirectory`），再复制到 `~/Library/LaunchAgents/` 后 `launchctl load`（每 15 分钟一次 `--tiered`，见上面「15 分钟分层收集」）。
 7. 想在 Claude Code 里用 `/wl`：Mac 跑 `./scripts/install-skill.sh`（需要先有 `bin/wl`），Win11 在 PowerShell 里跑 `.\scripts\install-skill.ps1`（需要先有 `bin\wl.exe`）。脚本会把本机仓库路径填进技能并写到 `~/.claude/skills/wl/SKILL.md`（不要手动链接或复制 `skills/wl`，里面是带占位符的模板）。改了模板或挪了仓库就重跑一次。
 
-详细的逐步核对清单（含每步期望输出）在 `docs/projects/web-service/evidence/checklists/win11-onboarding.md`。
-
 ## 让 session 自动挂到案件：配置 `[projects]`
 
 harvest 收到一个 session 时，看它的工作目录决定挂到哪个案件：

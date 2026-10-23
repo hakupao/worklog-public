@@ -33,7 +33,7 @@ describe("prefs", () => {
     await put({ ...DEFAULTS, lang: "ja" });
     for (const bad of [
       { lang: "fr" }, { speed: 2 }, { fx: { load: "slide" } }, { ofx: { load: "slide" } },
-      { worldFx: "melt" }, { omote: { hide: ["no-dot"] } }, { omote: { font: "comic" } },
+      { worldFx: "melt" }, { dock: "float" }, { omote: { hide: ["no-dot"] } }, { omote: { font: "comic" } },
     ]) {
       const r = await put(bad);
       expect(r.status).toBe(400);

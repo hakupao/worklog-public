@@ -75,6 +75,8 @@ export const PrefsIn = z.object({
     data: z.enum(INK_DATA).default(D.ofx.data as "roll"),
   }).default({}),
   worldFx: z.enum(["scan", "ink", "flip", "print"]).default(D.worldFx as "scan"),
+  // The desktop dock: sinks below the bottom edge until the pointer or keyboard focus reaches it, or stays up.
+  dock: z.enum(["auto", "pin"]).default(D.dock as "auto"),
   speed: z.union([z.literal(0.25), z.literal(0.5), z.literal(1), z.literal(1.5)]).default(D.speed as 1),
   omote: z.object({
     font: z.enum(["plex", "inter", "geist"]).default(D.omote.font as "plex"),

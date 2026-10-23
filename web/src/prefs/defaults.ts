@@ -8,6 +8,7 @@ export const DEFAULT_PREFS: Prefs = {
   fx: { load: "flicker", lang: "morph", data: "roll" },
   ofx: { load: "rise", lang: "slide", data: "roll" },
   worldFx: "scan",
+  dock: "auto",
   speed: 1,
   omote: { font: "plex", hide: ["now.cost", "stats.cost", "stats.review"] },
   predict: {

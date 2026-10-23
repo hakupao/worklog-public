@@ -3,7 +3,7 @@ import { isComposingEvent } from "../lib/ime";
 import type { StrKey } from "../i18n/strings";
 import { t } from "../i18n/t";
 import {
-  FONT_OPTIONS, INK_FX_OPTIONS, LANGS, LED_FX_OPTIONS, SPEED_OPTIONS, WORLD_FX_OPTIONS, type Trigger,
+  DOCK_OPTIONS, FONT_OPTIONS, INK_FX_OPTIONS, LANGS, LED_FX_OPTIONS, SPEED_OPTIONS, WORLD_FX_OPTIONS, type Trigger,
 } from "../prefs/types";
 import { useV2 } from "../ui/context";
 import { dropHashOverride } from "../ui/Dock";
@@ -27,6 +27,11 @@ export function SettingsPage() {
       <h2 className="grp-h">{L("settings.group.lang")}</h2>
       <Item name={L("settings.lang.name")} desc={L("settings.lang.desc")}>
         {LANGS.map((l) => <Opt key={l} on={prefs.lang === l} onClick={(e) => { dropHashOverride("lang"); setLang(l, e.currentTarget); }}>{L(`lang.${l}` as StrKey)}</Opt>)}
+      </Item>
+
+      <h2 className="grp-h">{L("settings.group.dock")}</h2>
+      <Item name={L("settings.dock.name")} desc={L("settings.dock.desc")}>
+        {DOCK_OPTIONS.map((d) => <Opt key={d} on={prefs.dock === d} onClick={() => setPrefs((p) => ({ ...p, dock: d }))}>{L(`dock.${d}` as StrKey)}</Opt>)}
       </Item>
 
       <h2 className="grp-h">{L("settings.group.ura")}</h2>

@@ -118,6 +118,9 @@ function screenIO() {
   };
 }
 
+// Each test that renders all 24 views; on a loaded machine or a 2-core CI runner one takes over the 20 s default.
+const HEAVY = 60_000;
+
 describe("linked hover off screen (R1)", () => {
   it("a canvas view off screen does not redraw when the hover task changes; it catches up once back on screen", async () => {
     const cv = stubCanvases(), io = screenIO();
@@ -141,7 +144,7 @@ describe("linked hover off screen (R1)", () => {
     io.show(el("stream"), true);
     io.show(el("stream"), true);                                    // a second report with nothing changed: no redraw
     expect(cv.draws(el("stream"))).toBe(at.find(([id]) => id === "stream")![1] + 3);
-  });
+  }, HEAVY);
 });
 
 it("every view is classified: a new view must say how it takes part in the linked hover", () => {
@@ -149,9 +152,6 @@ it("every view is classified: a new view must say how it takes part in the linke
   expect([...classified].sort()).toEqual([...STATS_VIEWS].sort());
   expect(new Set(classified).size).toBe(STATS_VIEWS.length);
 });
-
-// Each of these renders all 24 views; on a loaded machine or a 2-core CI runner one takes over the 20 s default.
-const HEAVY = 60_000;
 
 // The linked hover audit, split so each test stays a few seconds (F6): follows, then writes from the canvases, then
 // writes from the charts and rows. Each renders the page in the world with every view shown.
@@ -292,5 +292,6 @@ describe("表 with amounts hidden (default hide): no amount anywhere", () => {
       ];
       expect(texts.filter((s) => AMOUNT.test(s))).toEqual([]);
     },
+    HEAVY,
   );
 });
