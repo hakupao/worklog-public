@@ -67,6 +67,11 @@ export function Dock({ page, onNote }: { page: V2Page; onNote: () => void }) {
   const { lang, setLang, prefs } = useV2();
   const nav = useRef<HTMLElement>(null);
   const auto = prefs.dock === "auto", up = useDockUp(auto, nav);
+  // The page reads the mode to take back the room a pinned dock needs (v2.css, html.v2[data-dock=auto]).
+  useEffect(() => {
+    document.documentElement.dataset.dock = prefs.dock;
+    return () => { delete document.documentElement.dataset.dock; };
+  }, [prefs.dock]);
   const go = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
     e.preventDefault();

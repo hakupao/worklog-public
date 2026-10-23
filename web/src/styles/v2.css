@@ -430,6 +430,16 @@ html.v2 .now-left{display:flex;flex-direction:column;min-width:0;min-height:0;pa
   html.v2 .now:has(>.now-top){height:100%;display:grid;grid-template-rows:minmax(0,1fr) auto}
 }
 @media (max-height:819px){html.v2 .now-top{height:628px}}
+/* An auto-hidden dock takes no room (touch screens keep it up, so hover only): every page drops the dock's bottom
+   padding, and on 此刻 the title block takes it — body rows 27 → 36px (6-week months 22.5 → 30px), 165 → 210px. */
+@media (hover:hover){
+  html.v2[data-dock=auto] .v2-page{padding-bottom:32px}
+  html.v2[data-dock=auto] .tstrip{--rh:36px;height:210px}
+  html.v2[data-dock=auto] .tstrip.w6{--rh:30px}
+}
+@media (hover:hover) and (min-height:820px){
+  html.v2[data-dock=auto] .v2-page:has(>.now>.now-top){padding-bottom:16px}
+}
 /* left: the plate keeps its aspect, the run chart takes the rest; its body scrolls when 20px rows do not fit */
 html.v2 .now-left>[data-mod="now.dia"]{flex:1;min-height:0;display:flex;flex-direction:column}
 html.v2 .now-left .dia{flex:1;min-height:0}

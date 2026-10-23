@@ -42,6 +42,15 @@ describe("Dock auto-hide (prefs.dock)", () => {
     expect(away()).toBe(true);
   });
 
+  it("marks the mode on <html> for the page layout, and clears it on unmount", () => {
+    const a = renderDock("auto");
+    expect(document.documentElement.dataset.dock).toBe("auto");
+    a.unmount();
+    expect(document.documentElement.dataset.dock).toBeUndefined();
+    renderDock("pin");
+    expect(document.documentElement.dataset.dock).toBe("pin");
+  });
+
   it("pin: always up, no hint bar", () => {
     vi.useFakeTimers();
     const { away, container } = renderDock("pin");
